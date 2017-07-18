@@ -37,6 +37,16 @@ Plugin 'vim-scripts/L9'
 Plugin 'vim-scripts/FuzzyFinder'
 call vundle#end()
 
+"Run gofmt and scroll to current position
+function! GoFmtAndScroll()
+	let view = winsaveview()
+	%!gofmt
+	call winrestview(view)
+endfunction
+
+command! GoFmt call GoFmtAndScroll()
+
+
 filetype plugin indent on
 let mapleader=","
 syntax on
@@ -62,8 +72,6 @@ let g:indentLine_first_char = '·'
 let g:indentLine_showFirstIndentLevel = 1
 set list listchars=tab:·\ 
 
-"Setup GoFmt command
-autocmd VimEnter * command GoFmt %!gofmt
 "Fix crontab writing issues@s
 autocmd filetype crontab setlocal nobackup nowritebackup
 "Fix concealing issues with json and indentLine
