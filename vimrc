@@ -35,27 +35,8 @@ Plugin 'w0rp/ale'
 Plugin 'junegunn/vader.vim'
 Plugin 'vim-scripts/L9'
 Plugin 'vim-scripts/FuzzyFinder'
+Plugin 'fatih/vim-go'
 call vundle#end()
-
-"Run gofmt and scroll to current position
-function! GoFmtAndScroll()
-	let file_contents = join(getline(1, "$"), "\n")
-	let gofmt_output = system('/usr/local/go/bin/gofmt', file_contents)
-	echom v:shell_error
-	if v:shell_error != 0
-		echoerr gofmt_output
-		throw "Gofmt errors. See :messages."
-	else
-		let view = winsaveview()
-		1,$d
-		put =gofmt_output
-		1,1d
-		call winrestview(view)
-	endif
-endfunction
-
-command! GoFmt call GoFmtAndScroll()
-
 
 filetype plugin indent on
 let mapleader=","
@@ -95,7 +76,6 @@ autocmd VimEnter * nnoremap <leader>cc :call NERDComment("n","toggle")<CR>
 "Override vim default for things like python - use C-D for deleting indentations in insert mode.
 autocmd VimEnter * set softtabstop=0
 autocmd BufRead * :IndentLinesEnable
-autocmd BufWritePre *.go GoFmt
 
 "Tell Ale to always show sign column
 let g:ale_sign_column_always=1
