@@ -48,8 +48,8 @@ function! GoFmtAndScroll()
 	else
 		let view = winsaveview()
 		1,$d
-		put =gofmt_output
-		1,1d
+		undojoin | put =gofmt_output
+		undojoin | 1,1d
 		call winrestview(view)
 	endif
 endfunction
