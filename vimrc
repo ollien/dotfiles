@@ -39,9 +39,19 @@ call vundle#end()
 
 "Run gofmt and scroll to current position
 function! GoFmtAndScroll()
-	let view = winsaveview()
-	%!gofmt
-	call winrestview(view)
+	let file_contents = join(getline(1, "$"), "\n")
+	let gofmt_output = system('/usr/local/go/bin/gofmt', file_contents)
+	echom v:shell_error
+	if v:shell_error != 0
+		echoerr gofmt_output
+		throw "Gofmt errors. See :messages."
+	else
+		let view = winsaveview()
+		1,$d
+		put =gofmt_output
+		1,1d
+		call winrestview(view)
+	endif
 endfunction
 
 command! GoFmt call GoFmtAndScroll()
