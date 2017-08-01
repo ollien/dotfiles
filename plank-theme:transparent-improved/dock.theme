@@ -25,7 +25,7 @@ TopPadding=0
 #The padding on the bottom dock edge, in tenths of a percent of IconSize.
 BottomPadding=1.8
 #The padding between items on the dock, in tenths of a percent of IconSize.
-ItemPadding=2.5
+ItemPadding=1
 #The size of item indicators, in tenths of a percent of IconSize.
 IndicatorSize=10
 #The size of the icon-shadow behind every item, in tenths of a percent of IconSize.
