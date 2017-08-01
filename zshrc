@@ -41,6 +41,7 @@ unsetopt share_history
 unsetopt auto_cd
 setopt auto_pushd
 setopt prompt_subst
+setopt extended_glob
 
 #Alias for dotfiles bare repo git commands
 alias dotfiles="git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME/"
