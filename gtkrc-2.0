@@ -1,0 +1,5 @@
+style "myclock" {
+	font_name="Monsterrat Medium 12"
+}
+
+widget "*XfcePanel*Clock*" style "myclock"
