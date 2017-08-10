@@ -1,5 +1,5 @@
 style "myclock" {
-	font_name="Gravity Bold 13"
+	font_name="Oxygen-Sans Bold 14"
 }
 
 widget "*XfcePanel*Clock*" style "myclock"
