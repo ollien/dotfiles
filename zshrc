@@ -10,6 +10,9 @@ if [[ $HOSTNAME == "professor-farnsworth" ]]; then
 	export XDG_CONFIG_HOME=/home/nick/.config/
 	#In order to get pasteboard functionality on Fedora, we need alias vim=vimx
 	alias vim=vimx
+elif [[ $HOSTNAME == "bender" ]]; then
+	export PYTHONPATH=/home/nick/.config/powerline/segments
+	alias vim=vimx
 fi
 
 #Load zplug and various plugins
