@@ -10,9 +10,14 @@ if [[ $HOSTNAME == "professor-farnsworth" ]]; then
 	export XDG_CONFIG_HOME=/home/nick/.config/
 	#In order to get pasteboard functionality on Fedora, we need alias vim=vimx
 	alias vim=vimx
+	#Hostname unique color
+	export PROMPT_COLOR=006
 elif [[ $HOSTNAME == "bender" ]]; then
 	export PYTHONPATH=/home/nick/.config/powerline/segments
 	alias vim=vimx
+	export PROMPT_COLOR=003
+elif [[ $HOSTNAME == "planet-express-ship" ]]; then
+	export PROMPT_COLOR=002
 fi
 
 #Load zplug and various plugins
@@ -52,7 +57,7 @@ alias dotfiles="git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME/"
 #Generates a prompt that detects if enough space is leftover for commands. If there isn't, command entry begins on the next line.
 #Currently, the prompt length must be less than 5/8 of the terminal window
 PROMPT_PREFIX='%{$FG[005]%}[%~]'
-PROMPT_SUFFIX='%{$FG[006]%}%n@%M$%{$FX[reset]%} '
+PROMPT_SUFFIX='%{$FG[$PROMPT_COLOR]%}%n@%M$%{$FX[reset]%} '
 BASE_PROMPT=$PROMPT_PREFIX' '$PROMPT_SUFFIX
 NEWLINE_PROMPT=$PROMPT_PREFIX$'\n'$PROMPT_SUFFIX
 
