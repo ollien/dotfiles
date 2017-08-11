@@ -54,9 +54,6 @@ setopt auto_pushd
 setopt prompt_subst
 setopt extended_glob
 
-#Alias for dotfiles bare repo git commands
-alias dotfiles="git --git-dir=$HOME/.dotfiles-repo/ --work-tree=$HOME/"
-
 #Generates a prompt that detects if enough space is leftover for commands. If there isn't, command entry begins on the next line.
 #Currently, the prompt length must be less than 5/8 of the terminal window
 PROMPT_PREFIX='%{$FG[005]%}[%~]'
