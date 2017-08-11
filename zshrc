@@ -15,6 +15,8 @@ if [[ $HOSTNAME == "professor-farnsworth" ]]; then
 	PROMPT_COLOR=006
 elif [[ $HOSTNAME == "bender" ]]; then
 	export PYTHONPATH=/home/nick/.config/powerline/segments
+	export GOPATH=/home/nick/Documents/code/golang
+	export PATH=$GOPATH/bin:$PATH
 	alias vim=vimx
 	PROMPT_COLOR=003
 elif [[ $HOSTNAME == "planet-express-ship" ]]; then
@@ -53,6 +55,8 @@ unsetopt auto_cd
 setopt auto_pushd
 setopt prompt_subst
 setopt extended_glob
+
+alias cclip="xclip -selection clipboard"
 
 #Generates a prompt that detects if enough space is leftover for commands. If there isn't, command entry begins on the next line.
 #Currently, the prompt length must be less than 5/8 of the terminal window
