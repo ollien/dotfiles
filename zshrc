@@ -12,15 +12,15 @@ if [[ $HOSTNAME == "professor-farnsworth" ]]; then
 	#In order to get pasteboard functionality on Fedora, we need alias vim=vimx
 	alias vim=vimx
 	#Hostname unique color
-	export PROMPT_COLOR=006
+	PROMPT_COLOR=006
 elif [[ $HOSTNAME == "bender" ]]; then
 	export PYTHONPATH=/home/nick/.config/powerline/segments
 	alias vim=vimx
-	export PROMPT_COLOR=003
+	PROMPT_COLOR=003
 elif [[ $HOSTNAME == "planet-express-ship" ]]; then
-	export PROMPT_COLOR=002
+	PROMPT_COLOR=002
 else
-	export PROMPT_COLOR=006
+	PROMPT_COLOR=006
 fi
 
 #Load zplug and various plugins
