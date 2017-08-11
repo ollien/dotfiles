@@ -14,6 +14,7 @@ if [[ $HOSTNAME == "professor-farnsworth" ]]; then
 	#Hostname unique color
 	PROMPT_COLOR=006
 elif [[ $HOSTNAME == "bender" ]]; then
+	#/home/nick/.config/powerline/segments is used for custom ALE powerline segment
 	export PYTHONPATH=/home/nick/.config/powerline/segments
 	export GOPATH=/home/nick/Documents/code/golang
 	export PATH=$GOPATH/bin:$PATH
