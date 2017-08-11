@@ -1,4 +1,5 @@
-#Set variables specifically on desktop computer
+HOSTNAME=$(cat /etc/hostname)
+
 if [[ $HOSTNAME == "professor-farnsworth" ]]; then
 	export GOPATH=/home/nick/Documents/code/golang
 	#/home/nick/.config/powerline/segments is used for custom ALE powerline segment
