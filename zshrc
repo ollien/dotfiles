@@ -19,6 +19,8 @@ elif [[ $HOSTNAME == "bender" ]]; then
 	export PROMPT_COLOR=003
 elif [[ $HOSTNAME == "planet-express-ship" ]]; then
 	export PROMPT_COLOR=002
+else
+	export PROMPT_COLOR=006
 fi
 
 #Load zplug and various plugins
