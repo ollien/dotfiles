@@ -18,6 +18,7 @@ elif [[ $HOSTNAME == "bender" ]]; then
 	export PYTHONPATH=/home/nick/.config/powerline/segments
 	export GOPATH=/home/nick/Documents/code/golang
 	export PATH=$GOPATH/bin:$PATH
+	export PATH=/home/nick/.local/bin:$PATH
 	alias vim=vimx
 	PROMPT_COLOR=003
 elif [[ $HOSTNAME == "planet-express-ship" ]]; then
