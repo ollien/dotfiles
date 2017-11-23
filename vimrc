@@ -36,6 +36,7 @@ Plugin 'junegunn/vader.vim'
 Plugin 'vim-scripts/L9'
 Plugin 'vim-scripts/FuzzyFinder'
 Plugin 'fatih/vim-go'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 filetype plugin indent on
@@ -101,6 +102,9 @@ let g:easytags_languages = {
 \	}
 \}
 
+let g:ycm_auto_trigger = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 "Add shortcut to search tags
 nnoremap <leader>t :FufTag<CR>
 python3 from powerline.vim import setup as powerline_setup
