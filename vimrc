@@ -107,6 +107,15 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 "Add shortcut to search tags
 nnoremap <leader>t :FufTag<CR>
+
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
+"Fix issue where insert would close slowly
+if ! has('gui_running')
+	augroup FastEscape
+		autocmd!
+		au InsertEnter * set timeoutlen=0
+		au InsertLeave * set timeoutlen=1000
+	augroup END
+endif
