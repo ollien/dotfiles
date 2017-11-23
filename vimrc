@@ -64,7 +64,7 @@ let g:indentLine_first_char = '·'
 let g:indentLine_showFirstIndentLevel = 1
 set list listchars=tab:·\ 
 
-"Fix crontab writing issues@s
+"Fix crontab writing issues
 autocmd filetype crontab setlocal nobackup nowritebackup
 "Fix concealing issues with json and indentLine
 autocmd filetype json let g:indentLine_conceallevel  = &conceallevel
