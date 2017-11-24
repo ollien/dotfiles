@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+import sys
+import i3
+
+newWorkspace = sys.argv[1]
+workspaces = i3.get_workspaces()
+workspacesWithName = [workspace["name"] for workspace in workspaces
+                      if workspace["name"] == newWorkspace]
+if len(workspacesWithName) == 0:
+    raise ValueError(f"Workspace {newWorkspace} not found")
+
+for workspace in workspaces:
+    if workspace["focused"]:
+        print("moving")
+        i3.command("rename workspace", f"{workspace['name']} to temp")
+        i3.command("rename workspace", f"{newWorkspace} to {workspace['name']}")
+        i3.command("rename workspace", f"temp to {newWorkspace}")
+        break
