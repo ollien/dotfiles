@@ -21,7 +21,6 @@ Plugin 'Yggdroot/indentline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'Townk/vim-autoclose'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
@@ -35,6 +34,8 @@ Plugin 'w0rp/ale'
 Plugin 'junegunn/vader.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'Raimondi/delimitMate'
+
 call vundle#end()
 
 filetype plugin indent on
