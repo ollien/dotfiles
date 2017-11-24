@@ -1,5 +1,6 @@
-HOSTNAME=$(cat /etc/hostname)
+export PATH=/home/nick/.local/dotfile-sripts:$PATH
 
+HOSTNAME=$(cat /etc/hostname)
 if [[ $HOSTNAME == "professor-farnsworth" ]]; then
 	export GOPATH=/home/nick/Documents/code/golang
 	#/home/nick/.config/powerline/segments is used for custom ALE powerline segment
