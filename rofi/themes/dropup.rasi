@@ -13,7 +13,7 @@
 }
 
 #mainbox {
-	background-color: #031319ee;
+	background-color: #002b36ee;
 }
 
 
@@ -22,5 +22,5 @@
 }
 
 #element.selected {
-	background-color: #6b4a60ee;
+	background-color: #586e75ee;
 }
