@@ -20,3 +20,7 @@
 #listview {
 	lines: 10;
 }
+
+#element.selected {
+	background-color: #6b4a60ee;
+}
