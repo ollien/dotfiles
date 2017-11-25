@@ -1,4 +1,4 @@
-export PATH=/home/nick/.local/dotfile-sripts:$PATH
+export PATH=/home/nick/.local/dotfile-scripts:$PATH
 
 HOSTNAME=$(cat /etc/hostname)
 if [[ $HOSTNAME == "professor-farnsworth" ]]; then
