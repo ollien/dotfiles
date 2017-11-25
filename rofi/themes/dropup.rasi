@@ -18,6 +18,5 @@
 
 
 #listview {
-	dynamic: true;
 	lines: 10;
 }
