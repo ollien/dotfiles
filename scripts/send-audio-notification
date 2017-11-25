@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+volume=$(amixer get Master |awk '$0~/%/{print $5}' |tr -d '[]%' |head -n 1)
+sound_status=$(amixer get Master |awk '$0~/%/{print $6}' |tr -d '[]' |head -n 1)
+if [[ $volume == 100 ]]; then
+	icon="audio-volume-high"
+elif [[ $volume == 0 ]] || [[ $sound_status == "off" ]]; then
+	icon="audio-volume-muted"
+	volume=0
+else
+	icon="audio-volume-medium"
+fi
+
+notify-send " " -i $icon -h int:value:$volume
