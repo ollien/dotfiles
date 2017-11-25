@@ -11,4 +11,4 @@ else
 	icon="audio-volume-medium"
 fi
 
-notify-send " " -i $icon -h int:value:$volume
+notify-send.sh " " -i $icon -h int:value:$volume -a "audio-notifier" -R /tmp/audio-notification-id
