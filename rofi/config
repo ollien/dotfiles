@@ -1,0 +1,4 @@
+rofi.modi: drun,window,run
+rofi.color-enabled: true
+rofi.sidebar-mode: true
+rofi.theme: ~/.config/rofi/themes/dropup.rasi

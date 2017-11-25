@@ -1,0 +1,22 @@
+* {
+	background-color: #00000000;
+	text-color: #ffffff;
+}
+
+#window {
+	position: west;
+	location: south west;
+	anchor: south west;
+	orientation: horizontal;
+	width: 500px;
+	font: "Cantarell 12";
+}
+
+#mainbox {
+	background-color: #031319ee;
+}
+
+
+#listview {
+	dynamic: true;
+}
