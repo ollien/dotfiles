@@ -1,0 +1,152 @@
+[colors]
+background = #000000ff
+background-alt = #444444
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #586e75
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+battery-low=#fff055
+battery-critical=#ff5555
+
+[bar/primary]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 25
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "Cantarell":pixelsize=14;1
+font-1 = unifont:fontformat=truetype:size=15:antialias=false;3
+font-2 = "FontAwesome:pixelsize=15;3"
+
+modules-left = i3
+modules-right = volume battery date
+
+tray-position = center
+tray-maxsize = 24
+tray-padding = 2
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = j
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = {%index%}
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-foreground = ${colors.foreground-alt}
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = {%index%}
+label-visible-foreground = ${colors.foreground-alt}
+label-visible-padding = 1
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-foreground = ${colors.alert}
+label-urgent-padding = 1
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %a %b %d
+time = %I:%M %p
+format-prefix = 
+format-prefix-foreground = ${colors.foreground}
+format-prefix-padding-right = 1
+
+label = %date% - %time%
+
+[module/volume]
+type = internal/volume
+
+format-volume-prefix = 
+format-muted-prefix = 
+format-volume-prefix-padding-right = 1
+format-muted-prefix-padding-right = 1
+format-volume = <bar-volume>
+format-muted = <label-muted>
+label-muted=─────────
+label-muted-font = 2
+label-muted-foreground = ${colors.foreground-alt}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.foreground}
+bar-volume-foreground-1 = ${colors.foreground}
+bar-volume-foreground-2 = ${colors.foreground}
+bar-volume-foreground-3 = ${colors.foreground}
+bar-volume-foreground-4 = ${colors.foreground}
+bar-volume-foreground-5 = ${colors.foreground}
+bar-volume-foreground-6 = ${colors.foreground}
+bar-volume-gradient = false
+bar-volume-indicator =  
+bar-volume-indicator-foreground = ${colors.foreground-alt}
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging-prefix = "  "
+format-charging = <bar-capacity>
+
+format-discharging-prefix = " "
+format-discharging = <bar-capacity>
+format-discharging-padding-top=10
+bar-capacity-fill = ─
+bar-capacity-empty = ─
+bar-capacity-indicator =  
+bar-capacity-foreground-0 = ${colors.battery-critical}
+bar-capacity-foreground-1 = ${colors.battery-low}
+bar-capacity-foreground-2 = ${colors.foreground}
+bar-capacity-foreground-3 = ${colors.foreground}
+bar-capacity-foreground-4 = ${colors.foreground}
+bar-capacity-foreground-5 = ${colors.foreground}
+bar-capacity-foreground-6 = ${colors.foreground}
+bar-capacity-foreground-7 = ${colors.foreground}
+bar-capacity-foreground-8 = ${colors.foreground}
+bar-capacity-foreground-9 = ${colors.foreground}
+bar-capacity-empty-foreground = ${colors.foreground-alt}
+bar-capacity-indicator-foreground = ${colors.foreground-alt}
+bar-capacity-width = 10
+bar-capacity-indicator-font = 2
+bar-capacity-empty-font = 2
+bar-capacity-fill-font = 2
+bar-capacity-gradient = false
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+; vim:ft=dosini
