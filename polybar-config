@@ -122,7 +122,6 @@ format-charging = <bar-capacity>
 
 format-discharging-prefix = " "
 format-discharging = <bar-capacity>
-format-discharging-padding-top=10
 bar-capacity-fill = ─
 bar-capacity-empty = ─
 bar-capacity-indicator =  
