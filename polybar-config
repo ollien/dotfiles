@@ -1,7 +1,6 @@
 [colors]
 background = #000000ff
 background-alt = #444444
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #586e75
 primary = #ffb52a
@@ -11,7 +10,6 @@ battery-low=#fff055
 battery-critical=#ff5555
 
 [bar/primary]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 25
 background = ${colors.background}
@@ -70,18 +68,15 @@ label-urgent-padding = 1
 [module/date]
 type = internal/date
 interval = 5
-
 date = %a %b %d
 time = %I:%M %p
 format-prefix = 
 format-prefix-foreground = ${colors.foreground}
 format-prefix-padding-right = 1
-
 label = %date% - %time%
 
 [module/volume]
 type = internal/volume
-
 format-volume-prefix = 
 format-muted-prefix = 
 format-volume-prefix-padding-right = 1
@@ -91,7 +86,6 @@ format-muted = <label-muted>
 label-muted=─────────
 label-muted-font = 2
 label-muted-foreground = ${colors.foreground-alt}
-
 bar-volume-width = 10
 bar-volume-foreground-0 = ${colors.foreground}
 bar-volume-foreground-1 = ${colors.foreground}
@@ -119,7 +113,6 @@ format-full = <bar-capacity>
 format-full-prefix=" "
 format-charging-prefix = "  "
 format-charging = <bar-capacity>
-
 format-discharging-prefix = " "
 format-discharging = <bar-capacity>
 bar-capacity-fill = ─
@@ -143,18 +136,7 @@ bar-capacity-empty-font = 2
 bar-capacity-fill-font = 2
 bar-capacity-gradient = false
 
-;[module/custom-battery]
-;type = custom/ipc
-;hook-0 = battery-bar 1
-;hook-1 = upower -i /org/freedesktop/UPower/devices/DisplayDevice |grep 'percentage' |awk '{print $2}'
-;initial = 1
-;click-left = polybar-msg -p %pid% hook custom-battery 1
-
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
 
 ; vim:ft=dosini
