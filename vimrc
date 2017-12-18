@@ -66,12 +66,12 @@ let g:indentLine_showFirstIndentLevel = 1
 set list listchars=tab:·\ 
 
 "Fix crontab writing issues
-autocmd filetype crontab setlocal nobackup nowritebackup
+autocmd FileType crontab setlocal nobackup nowritebackup
 "Fix concealing issues with json and indentLine
-autocmd filetype json let g:indentLine_conceallevel  = &conceallevel
-autocmd filetype json let g:indentLine_concealcursor = &concealcursor
+autocmd FileType json let g:indentLine_conceallevel  = &conceallevel
+autocmd FileType json let g:indentLine_concealcursor = &concealcursor
 "PEP8 Line length guide
-autocmd filetype python setlocal colorcolumn=79
+autocmd FileType python setlocal colorcolumn=79
 
 autocmd VimEnter * xnoremap <leader>cc :call NERDComment("x","toggle")<CR>
 autocmd VimEnter * nnoremap <leader>cc :call NERDComment("n","toggle")<CR>
