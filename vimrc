@@ -25,6 +25,7 @@ Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tyrannicaltoucan/vim-quantum'
+Plugin 'vim-airline/vim-airline'
 
 call vundle#end()
 
@@ -105,10 +106,8 @@ let g:easytags_languages = {
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-"Fix issue where insert would close slowly
+let g:airline_powerline_fonts = 1
+
 if ! has('gui_running')
 	augroup FastEscape
 		autocmd!
