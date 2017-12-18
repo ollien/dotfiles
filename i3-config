@@ -158,6 +158,7 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+minus move scratchpad
 bindsym $mod+plus scratchpad show
+bindsym $mod+backslash sticky toggle
 
 focus_follows_mouse no
 focus_on_window_activation focus
