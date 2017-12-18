@@ -1,16 +1,5 @@
 set nocompatible
 
-"Set color scheme to quantum
-let g:quantum_black = 1
-let g:quantum_italics = 1
-set termguicolors
-set background=dark
-color quantum
-
-"termguicolor fix for tmux
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
 "Vundle Setup/Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 filetype off
@@ -35,8 +24,20 @@ Plugin 'junegunn/vader.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Raimondi/delimitMate'
+Plugin 'tyrannicaltoucan/vim-quantum'
 
 call vundle#end()
+
+"termguicolor fix for tmux
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+"Set color scheme to quantum
+let g:quantum_black = 1
+let g:quantum_italics = 1
+set termguicolors
+set background=dark
+color quantum
 
 filetype plugin indent on
 let mapleader=","
