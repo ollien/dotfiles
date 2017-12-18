@@ -24,7 +24,7 @@ font-1 = unifont:fontformat=truetype:size=15:antialias=false;3
 font-2 = "FontAwesome:pixelsize=15;3"
 
 modules-left = i3
-modules-right = volume battery date custom-battery
+modules-right = volume battery date
 
 tray-position = center
 tray-maxsize = 24
