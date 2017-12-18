@@ -1,4 +1,10 @@
 #!/usr/bin/env sh
 killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-polybar primary &
+PRIMARY_MONITOR=$(xrandr -q |grep 'primary' |awk '{print $1}')
+OTHER_MONITORS=$(xrandr -q |grep '[^dis]connected [^primary]' |awk '{print $1}')
+
+MONITOR=$PRIMARY_MONITOR polybar primary &
+echo $OTHER_MONITORS |while read monitor; do
+	MONITOR=$monitor polybar secondary &
+done
