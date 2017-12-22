@@ -123,6 +123,9 @@ bindsym $mod+Control+8 exec ~/.local/dotfile-scripts/swap-workspaces 8
 bindsym $mod+Control+9 exec ~/.local/dotfile-scripts/swap-workspaces 9
 bindsym $mod+Control+0 exec ~/.local/dotfile-scripts/swap-workspaces 10
 
+bindsym $mod+Control+Shift+h move workspace to output left
+bindsym $mod+Control+Shift+l move workspace to output right
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
