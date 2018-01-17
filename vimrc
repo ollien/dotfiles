@@ -26,6 +26,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 call vundle#end()
 
@@ -108,6 +109,8 @@ let g:easytags_languages = {
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+let g:DoxygenToolkit_briefTag_pre=""
 
 let g:airline_powerline_fonts = 1
 
