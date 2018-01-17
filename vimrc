@@ -75,8 +75,6 @@ autocmd FileType python setlocal colorcolumn=79
 
 autocmd VimEnter * xnoremap <leader>cc :call NERDComment("x","toggle")<CR>
 autocmd VimEnter * nnoremap <leader>cc :call NERDComment("n","toggle")<CR>
-"Override vim default for things like python - use C-D for deleting indentations in insert mode.
-autocmd VimEnter * set softtabstop=0
 autocmd BufRead * :IndentLinesEnable
 
 "Tell Ale to always show sign column
@@ -85,6 +83,10 @@ let g:ale_sign_column_always=1
 autocmd BufEnter * sign define dummy
 "Add blank to sign column
 autocmd BufEnter * execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+"Set space indentation for C(++)
+autocmd FileType c,cpp set expandtab
+autocmd FileType c,cpp set shiftwidth=4
+autocmd FileType c,cpp set softtabstop=4
 
 nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
