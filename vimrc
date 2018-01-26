@@ -96,6 +96,9 @@ nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|venv'
+let g:ctrlp_extensions = ['tag']
+let g:ctrlp_cmd = 'CtrlPTag'
+noremap <c-o> :CtrlP<CR>
 
 let g:easytags_dynamic_files = 1
 let g:easytags_languages = {
