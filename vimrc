@@ -27,6 +27,8 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'dkprice/vim-easygrep'
 
 call vundle#end()
 
