@@ -58,8 +58,9 @@ set clipboard=unnamedplus
 set splitright
 "Find while searching
 set incsearch
-"Set tagfile
-set tags=/home/nick/.vimtags
+
+set tags='./.tags;'
+
 set laststatus=2
 
 "Set indent marker
@@ -96,6 +97,7 @@ nnoremap <leader>O O<ESC>
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|venv'
 
+let g:easytags_dynamic_files = 1
 let g:easytags_languages = {
 \	'javascript': {
 \		'cmd': 'jsctags',
