@@ -52,6 +52,8 @@ set number
 set noexpandtab
 set tabstop=4
 set shiftwidth=4
+"Always use unix fileformat
+set fileformats=unix
 "Use system clipboard
 set clipboard=unnamedplus
 "Better splitting
