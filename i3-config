@@ -175,7 +175,7 @@ focus_on_window_activation focus
 gaps inner 8
 gaps outer 2
 
-client.focused #646482 #646482 #fdf6e3 #268bd2
+client.focused #5f5f7a #5f5f7a #fdf6e3 #268bd2
 client.focused_inactive #303644 #303644 #93a1a1 #002b36
 client.unfocused #1c2231 #1c2231 #586e75 #002b36
 client.urgent #dc322f #dc322f #fdf6e3 #dc322f
