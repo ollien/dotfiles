@@ -1,6 +1,7 @@
 [colors]
 background = #1C2231
 foreground = #dfdfdf
+foreground-alt = #586e75
 primary = #ffb52a
 alert = #bd2c40
 battery-low=#fff055
