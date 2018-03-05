@@ -6,5 +6,7 @@ OTHER_MONITORS=$(xrandr -q |grep '[^dis]connected [^primary]' |awk '{print $1}')
 
 MONITOR=$PRIMARY_MONITOR polybar primary &
 echo $OTHER_MONITORS |while read monitor; do
-	MONITOR=$monitor polybar secondary &
+	if [[ ! -z $monitor ]]; then
+		MONITOR=$monitor polybar secondary &
+	fi
 done
