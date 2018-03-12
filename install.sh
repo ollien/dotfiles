@@ -8,14 +8,16 @@ function readLocations() {
 }
 
 getopts "f" force
-declare -A locations=(["zshrc"]="$HOME/.zshrc"\
-					  ["vimrc"]="$HOME/.vimrc"\
+declare -A locations=(
+					  ["ctags"]="$HOME/.ctags"\
 					  ["i3-config"]="$HOME/.config/i3/config"\
-					  ["terminalrc"]="$HOME/.config/xfce4/terminal/terminalrc"\
-					  ["scripts"]="$HOME/.local/dotfile-scripts"\
+					  ["polybar-config"]="$HOME/.config/polybar/config"\
 					  ["rofi"]="$HOME/.config/rofi"\
-					  ["polybar-config"]="$HOME/.config/polybar/config"
-					  ["ctags"]="$HOME/.ctags")
+					  ["scripts"]="$HOME/.local/dotfile-scripts"\
+					  ["terminalrc"]="$HOME/.config/xfce4/terminal/terminalrc"\
+					  ["vimrc"]="$HOME/.vimrc"\
+					  ["zshrc"]="$HOME/.zshrc")
+
 readLocations
 
 satisfied="n"
