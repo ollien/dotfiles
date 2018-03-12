@@ -11,8 +11,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'xolox/vim-easytags'
-Plugin 'xolox/vim-misc'
 Plugin 'pangloss/vim-javascript'
 Plugin 'lumiliet/vim-twig'
 Plugin 'tpope/vim-fugitive'
@@ -29,6 +27,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'dkprice/vim-easygrep'
+Plugin 'ludovicchabant/vim-gutentags'
 
 call vundle#end()
 
@@ -60,8 +59,6 @@ set clipboard=unnamedplus
 set splitright
 "Find while searching
 set incsearch
-
-set tags='./.tags;'
 
 set laststatus=2
 
@@ -102,19 +99,6 @@ let g:ctrlp_extensions = ['tag']
 let g:ctrlp_cmd = 'CtrlPTag'
 noremap <c-o> :CtrlP<CR>
 
-let g:easytags_dynamic_files = 1
-let g:easytags_languages = {
-\	'javascript': {
-\		'cmd': 'jsctags',
-\		'args': ['-f']
-\	},
-\	'go': {
-\		'cmd': 'gotags',
-\		'args': [],
-\		'stout_opt': '-f -'
-\	}
-\}
-
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -122,6 +106,10 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/
 let g:DoxygenToolkit_briefTag_pre=""
 
 let g:airline_powerline_fonts = 1
+
+let g:gutentags_ctags_tagfile = ".tags"
+let g:gutentags_project_root = [g:gutentags_ctags_tagfile]
+let g:gutentags_generate_on_write = 1
 
 if ! has('gui_running')
 	augroup FastEscape
