@@ -14,7 +14,8 @@ declare -A locations=(["zshrc"]="$HOME/.zshrc"\
 					  ["terminalrc"]="$HOME/.config/xfce4/terminal/terminalrc"\
 					  ["scripts"]="$HOME/.local/dotfile-scripts"\
 					  ["rofi"]="$HOME/.config/rofi"\
-					  ["polybar-config"]="$HOME/.config/polybar/config")
+					  ["polybar-config"]="$HOME/.config/polybar/config"
+					  ["ctags"]="$HOME/.ctags")
 readLocations
 
 satisfied="n"
