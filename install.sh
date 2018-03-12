@@ -12,7 +12,6 @@ declare -A locations=(["zshrc"]="$HOME/.zshrc"\
 					  ["vimrc"]="$HOME/.vimrc"\
 					  ["i3-config"]="$HOME/.config/i3/config"\
 					  ["terminalrc"]="$HOME/.config/xfce4/terminal/terminalrc"\
-					  ["gtkrc-2.0"]="$HOME/.gtkrc-2.0"\
 					  ["scripts"]="$HOME/.local/dotfile-scripts"\
 					  ["rofi"]="$HOME/.config/rofi"\
 					  ["polybar-config"]="$HOME/.config/polybar/config")
