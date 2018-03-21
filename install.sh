@@ -22,21 +22,21 @@ readLocations
 
 satisfied="n"
 while [[ $satisfied != "y" ]]; do
-	done=false
+	locationsSet=false
 	read -p "Are you satisfied with these locations? (y/n) [y] " satisfied
-	while [[ $done = false ]]; do
+	while [[ $locationsSet == false ]]; do
 		if [[ $satisfied == "no" ]] || [[ $satisfied == "n" ]]; then
 			read -p "Name of file to change: " nameToChange
 			if [[ ! -z ${locations[$nameToChange]} ]]; then
 				read -p "New path for this file: " newPath
 				locations[$nameToChange]=$newPath
-				done=true
+				locationsSet=true
 				readLocations
 			else
 				echo "Not found."
 			fi
 		elif [[ $satisfied == "" ]] || [[ $satisfied == "yes" ]] || [[ $satisfied == "y" ]]; then
-			done=true
+			locationsSet=true
 			satisfied="y"
 		fi
 	done
