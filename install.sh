@@ -7,6 +7,16 @@ function readLocations() {
 	echo ""
 }
 
+function installPlugins() {
+	echo "Installing vundle..."
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	echo "Installing zplug..."
+	zplugInstallLoc=$HOME/.zsh/zplug
+	mkdir -p $zplugInstallLoc
+	git clone https://github.com/zplug/zplug $zplugInstallLoc
+
+}
+
 getopts "f" force
 declare -A locations=(
 					  ["ctags"]="$HOME/.ctags"\
