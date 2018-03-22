@@ -102,5 +102,6 @@ else
 		done
 	else
 		echo "Some dotfiles failed to install, probably due to existing symlinks. If you wish to overwrite your existing files, please run this again with the -f flag."
+		exit 2
 	fi
 fi
