@@ -11,7 +11,6 @@ if len(workspacesWithName) == 0:
 
 for workspace in workspaces:
     if workspace["focused"]:
-        print("moving")
         i3.command("rename workspace", f"{workspace['name']} to temp")
         i3.command("rename workspace", f"{newWorkspace} to {workspace['name']}")
         i3.command("rename workspace", f"temp to {newWorkspace}")
