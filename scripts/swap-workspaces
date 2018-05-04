@@ -24,6 +24,8 @@ for workspace in workspaces:
             # Prevent i3 from creating a new workspace during the swap process
             i3.command(f"[workspace={new_workspace}] focus")
             i3.command(f"[workspace={workspace['name']}] focus")
+        # Switch the workspaces themselves - will end up focused on what was
+        # originally workspace['name'] (i.e. new_workspace will be unfocused)
         i3.command("rename workspace", f"{workspace['name']} to temp")
         i3.command("rename workspace", f"{new_workspace} to {workspace['name']}")
         i3.command("rename workspace", f"temp to {new_workspace}")
