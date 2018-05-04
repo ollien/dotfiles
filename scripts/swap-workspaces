@@ -2,31 +2,33 @@
 import sys
 import i3
 
-new_workspace = sys.argv[1]
-workspaces = i3.get_workspaces()
-workspaces_with_name = [workspace for workspace in workspaces
-                        if workspace["name"] == new_workspace]
+if __name__ == "__main__":
+    new_workspace = sys.argv[1]
+    workspaces = i3.get_workspaces()
+    workspaces_with_name = [workspace for workspace in workspaces
+                            if workspace["name"] == new_workspace]
 
-if len(workspaces_with_name) == 0:
-    raise ValueError(f"Workspace {new_workspace} not found")
+    if len(workspaces_with_name) == 0:
+        raise ValueError(f"Workspace {new_workspace} not found")
 
-# i3 will only allow one workspace to have a name at a time.
-new_workspaceMonitor = workspaces_with_name[0]["output"]
+    # i3 will only allow one workspace to have a name at a time.
+    new_workspaceMonitor = workspaces_with_name[0]["output"]
 
-for workspace in workspaces:
-    if workspace["focused"]:
-        old_workspace_monitor = workspace["output"]
-        if new_workspaceMonitor != old_workspace_monitor:
-            i3.command(f"[workspace={new_workspace}] move workspace",
-                       f"to output {workspace['output']}")
-            i3.command(f"[workspace={workspace['name']}] move workspace",
-                       f"to output {new_workspaceMonitor}")
-            # Prevent i3 from creating a new workspace during the swap process
-            i3.command(f"[workspace={new_workspace}] focus")
-            i3.command(f"[workspace={workspace['name']}] focus")
-        # Switch the workspaces themselves - will end up focused on what was
-        # originally workspace['name'] (i.e. new_workspace will be unfocused)
-        i3.command("rename workspace", f"{workspace['name']} to temp")
-        i3.command("rename workspace", f"{new_workspace} to {workspace['name']}")
-        i3.command("rename workspace", f"temp to {new_workspace}")
-        break
+    for workspace in workspaces:
+        if workspace["focused"]:
+            old_workspace_monitor = workspace["output"]
+            if new_workspaceMonitor != old_workspace_monitor:
+                i3.command(f"[workspace={new_workspace}] move workspace",
+                           f"to output {workspace['output']}")
+                i3.command(f"[workspace={workspace['name']}] move workspace",
+                           f"to output {new_workspaceMonitor}")
+                # Prevent i3 from creating a new workspace during the swap
+                i3.command(f"[workspace={new_workspace}] focus")
+                i3.command(f"[workspace={workspace['name']}] focus")
+            # Switch the workspaces themselves - will end up focused on what
+            # was originally workspace['name'] (i.e. new_workspace will be
+            # unfocused)
+            i3.command("rename workspace", f"{workspace['name']} to temp")
+            i3.command("rename workspace", f"{new_workspace} to {workspace['name']}")
+            i3.command("rename workspace", f"temp to {new_workspace}")
+            break
