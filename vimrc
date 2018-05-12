@@ -111,6 +111,8 @@ let g:gutentags_ctags_tagfile = ".tags"
 let g:gutentags_project_root = [g:gutentags_ctags_tagfile]
 let g:gutentags_generate_on_write = 1
 
+let g:go_fmt_command = "goimports"
+
 "A fix for an issue where escaping from insert would take a moment
 if ! has('gui_running')
 	augroup FastEscape
