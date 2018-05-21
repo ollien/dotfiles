@@ -63,6 +63,8 @@ setopt extended_glob
 
 alias cclip="xclip -selection clipboard"
 
+tabs -4
+
 #Generates a prompt that detects if enough space is leftover for commands. If there isn't, command entry begins on the next line.
 #Currently, the prompt length must be less than 5/8 of the terminal window
 PROMPT_PREFIX='%{$FG[005]%}[%~]'
