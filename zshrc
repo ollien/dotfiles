@@ -1,25 +1,25 @@
-export PATH=/home/nick/.local/dotfile-scripts:$PATH
+export PATH=$HOME/.local/dotfile-scripts:$PATH
 
 HOSTNAME=$(cat /etc/hostname)
 if [[ $HOSTNAME == "professor-farnsworth" ]]; then
-	export GOPATH=/home/nick/Documents/code/golang
-	#/home/nick/.config/powerline/segments is used for custom ALE powerline segment
-	export PYTHONPATH=/home/nick/.config/powerline/segments
-	export PATH=/home/nick/.local/bin:$PATH
+	export GOPATH=$HOME/Documents/code/golang
+	#$HOME/.config/powerline/segments is used for custom ALE powerline segment
+	export PYTHONPATH=$HOME/.config/powerline/segments
+	export PATH=$HOME/.local/bin:$PATH
 	export PATH=/usr/local/go/bin:$PATH
 	export PATH=$GOPATH/bin:$PATH
 	export EDITOR=/usr/bin/vimx
-	export XDG_CONFIG_HOME=/home/nick/.config/
+	export XDG_CONFIG_HOME=$HOME/.config/
 	#In order to get pasteboard functionality on Fedora, we need alias vim=vimx
 	alias vim=vimx
 	#Hostname unique color
 	PROMPT_COLOR=006
 elif [[ $HOSTNAME == "bender" ]]; then
-	#/home/nick/.config/powerline/segments is used for custom ALE powerline segment
-	export PYTHONPATH=/home/nick/.config/powerline/segments
-	export GOPATH=/home/nick/Documents/code/golang
+	#$HOME/.config/powerline/segments is used for custom ALE powerline segment
+	export PYTHONPATH=$HOME/.config/powerline/segments
+	export GOPATH=$HOME/Documents/code/golang
 	export PATH=$GOPATH/bin:$PATH
-	export PATH=/home/nick/.local/bin:$PATH
+	export PATH=$HOME/.local/bin:$PATH
 	export EDITOR=/usr/bin/vimx
 	#In order to get pasteboard functionality on Fedora, we need alias vim=vimx
 	alias vim=vimx
