@@ -1,8 +1,19 @@
 #!/usr/bin/env sh
+
+function getPrimaryMonitor() {
+	PRIMARY_MONITOR=$(xrandr -q |grep '[^disconnected ]primary' |awk '{print $1}')
+	#If our primary monitor is disconnected, use the first connected monitor.
+	if [[ -z $PRIMARY_MONITOR ]]; then
+		echo $(xrandr -q |grep '[^dis]connected' |awk '{print $1}' |head -n 1)
+	else
+		echo $PRIMARY_MONITOR
+	fi
+}
+
 killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-PRIMARY_MONITOR=$(xrandr -q |grep 'primary' |awk '{print $1}')
-OTHER_MONITORS=$(xrandr -q |grep '[^dis]connected [^primary]' |awk '{print $1}')
+PRIMARY_MONITOR=$(getPrimaryMonitor)
+OTHER_MONITORS=$(xrandr -q |grep '[^dis]connected [^primary]' |awk '{print $1}' |grep -v $PRIMARY_MONITOR)
 
 MONITOR=$PRIMARY_MONITOR polybar primary &
 echo "$OTHER_MONITORS" |while read monitor; do
