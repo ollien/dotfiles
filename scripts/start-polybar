@@ -15,9 +15,9 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 PRIMARY_MONITOR=$(getPrimaryMonitor)
 OTHER_MONITORS=$(xrandr -q |grep -P '(?<!dis)connected\s(?!primary)' |awk '{print $1}' |grep -v "^$PRIMARY_MONITOR$")
 
-MONITOR=$PRIMARY_MONITOR polybar primary &
+MONITOR=$PRIMARY_MONITOR nohup polybar primary &
 echo "$OTHER_MONITORS" |while read monitor; do
 	if [[ ! -z $monitor ]]; then
-		MONITOR=$monitor polybar secondary &
+		MONITOR=$monitor nohup polybar secondary &
 	fi
 done
