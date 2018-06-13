@@ -14,6 +14,13 @@ if [[ $HOSTNAME == "professor-farnsworth" ]]; then
 	alias vim=vimx
 	#Hostname unique color
 	PROMPT_COLOR=006
+elif [[ $HOSTNAME == "cubert" ]]; then
+	export PATH=$HOME/.local/bin:$PATH
+	export GOPATH=$HOME/Documents/code/golang
+	export EDITOR=/usr/bin/vimx
+	#In order to get pasteboard functionality on Fedora, we need alias vim=vimx
+	alias vim=vimx
+	PROMPT_COLOR=006
 elif [[ $HOSTNAME == "bender" ]]; then
 	#$HOME/.config/powerline/segments is used for custom ALE powerline segment
 	export PYTHONPATH=$HOME/.config/powerline/segments
