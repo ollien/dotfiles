@@ -17,6 +17,8 @@ if [[ $HOSTNAME == "professor-farnsworth" ]]; then
 elif [[ $HOSTNAME == "cubert" ]]; then
 	export PATH=$HOME/.local/bin:$PATH
 	export GOPATH=$HOME/Documents/code/golang
+	export PATH=$GOPATH/bin:$PATH
+	export PATH=$HOME/.local/npm/bin:$PATH
 	export EDITOR=/usr/bin/vimx
 	#In order to get pasteboard functionality on Fedora, we need alias vim=vimx
 	alias vim=vimx
