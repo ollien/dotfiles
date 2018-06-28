@@ -29,6 +29,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'heavenshell/vim-jsdoc'
 
 call vundle#end()
 
@@ -76,6 +77,8 @@ autocmd FileType json let g:indentLine_conceallevel  = &conceallevel
 autocmd FileType json let g:indentLine_concealcursor = &concealcursor
 "PEP8 Line length guide
 autocmd FileType python setlocal colorcolumn=79
+"jsdoc bindings
+autocmd FileType javascript,typescript nnoremap <leader>d :JsDoc<CR>
 
 autocmd VimEnter * xnoremap <leader>cc :call NERDComment("x","toggle")<CR>
 autocmd VimEnter * nnoremap <leader>cc :call NERDComment("n","toggle")<CR>
