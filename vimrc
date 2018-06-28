@@ -28,6 +28,7 @@ Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 
