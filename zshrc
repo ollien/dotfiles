@@ -19,9 +19,7 @@ elif [[ $HOSTNAME == "cubert" ]]; then
 	export GOPATH=$HOME/Documents/code/golang
 	export PATH=$GOPATH/bin:$PATH
 	export PATH=$HOME/.local/npm/bin:$PATH
-	export EDITOR=/usr/bin/vimx
-	#In order to get pasteboard functionality on Fedora, we need alias vim=vimx
-	alias vim=vimx
+	export EDITOR=/usr/bin/vim
 	PROMPT_COLOR=006
 elif [[ $HOSTNAME == "bender" ]]; then
 	#$HOME/.config/powerline/segments is used for custom ALE powerline segment
