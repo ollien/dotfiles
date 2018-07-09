@@ -85,6 +85,7 @@ autocmd BufRead * :IndentLinesEnable
 
 "Tell Ale to always show sign column
 let g:ale_sign_column_always=1
+let g:ale_linters = {"typescript": ["tslint"]}
 "Make sign column so we always have one for Ale - even on file open. (which Ale doesn't do)
 autocmd BufEnter * sign define dummy
 "Add blank to sign column
