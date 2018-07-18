@@ -74,7 +74,8 @@ autocmd FileType crontab setlocal nobackup nowritebackup
 "Fix concealing issues with json and indentLine
 autocmd FileType json let g:indentLine_conceallevel  = &conceallevel
 autocmd FileType json let g:indentLine_concealcursor = &concealcursor
-"PEP8 Line length guide
+"PEP8 Line length guide - 100 chars is a hard limit for flake8 but still try
+"to stay under 79
 autocmd FileType python setlocal colorcolumn=79
 "jsdoc bindings
 autocmd FileType javascript,typescript nnoremap <leader>d :JsDoc<CR>
@@ -86,6 +87,7 @@ autocmd BufRead * :IndentLinesEnable
 "Tell Ale to always show sign column
 let g:ale_sign_column_always=1
 let g:ale_linters = {"typescript": ["tslint"]}
+let g:ale_python_flake8_options = "--max-line-length=100"
 "Make sign column so we always have one for Ale - even on file open. (which Ale doesn't do)
 autocmd BufEnter * sign define dummy
 "Add blank to sign column
@@ -106,6 +108,7 @@ noremap <c-o> :CtrlP<CR>
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_python_binary_path = 'python3'
 
 let g:DoxygenToolkit_briefTag_pre=""
 
