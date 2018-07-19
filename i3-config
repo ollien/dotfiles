@@ -181,3 +181,4 @@ client.unfocused #1c2231 #1c2231 #586e75 #002b36
 client.urgent #dc322f #dc322f #fdf6e3 #dc322f
 
 exec_always --no-startup-id $HOME/.local/dotfile-scripts/start-polybar
+exec_always nitrogen --restore
