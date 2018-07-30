@@ -14,7 +14,11 @@ function installPlugins() {
 	zplugInstallLoc=$HOME/.zsh/zplug
 	mkdir -p $zplugInstallLoc
 	git clone https://github.com/zplug/zplug $zplugInstallLoc
-
+	echo "Installing extra scripts..."
+	scriptInstallLoc=$HOME/.local/bin
+	mkdir -p $scriptInstallLoc
+	wget -O $scriptInstallLoc/notify-send.sh https://raw.githubusercontent.com/vlevit/notify-send.sh/master/notify-send.sh
+	wget -O $scriptInstallLoc/ssh-terminfo https://raw.githubusercontent.com/kovidgoyal/kitty/master/kittens/ssh/main.py
 }
 
 force=false
@@ -89,7 +93,7 @@ else
 
 	if [[ $status == 0 ]]; then
 		echo "Dotfiles have been installed!"
-		echo "To use the vimrc and the zshrc in this repo, you need Vundle and zplug."
+		echo "To use the vimrc and the zshrc in this repo, you need Vundle, zplug, and some third party scripts."
 		shouldInstall="y"
 		read -p "Would you like to install them? (y/n) [y] " shouldInstall
 		installChoiceMade=false
