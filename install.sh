@@ -74,6 +74,7 @@ else
 	status=0
 	for key in "${!locations[@]}"; do
 		fullPath=$(readlink -f $key)
+		mkdir -p $(dirname $fullPath)
 		if $force; then
 			ln -sf $fullPath ${locations[$key]}
 		else
