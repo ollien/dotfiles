@@ -28,9 +28,7 @@ elif [[ $HOSTNAME == "bender" ]]; then
 	export GOPATH=$HOME/Documents/code/golang
 	export PATH=$GOPATH/bin:$PATH
 	export PATH=$HOME/.local/bin:$PATH
-	export EDITOR=/usr/bin/vimx
-	#In order to get pasteboard functionality on Fedora, we need alias vim=vimx
-	alias vim=vimx
+	export EDITOR=/usr/bin/vim
 	PROMPT_COLOR=003
 elif [[ $HOSTNAME == "planet-express-ship" ]]; then
 	PROMPT_COLOR=002
