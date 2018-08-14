@@ -78,11 +78,15 @@ else
 	status=0
 	for key in "${!locations[@]}"; do
 		fullPath=$(readlink -f $key)
-		mkdir -p $(dirname $fullPath)
+		destPath=${locations[$key]}
+		destDir=$(dirname $destPath)
+		if [[ ! -d $destDir ]]; then
+			mkdir -p $destDir
+		fi
 		if $force; then
-			ln -sf $fullPath ${locations[$key]}
+			ln -sf $fullPath $destPath
 		else
-			ln -s $fullPath ${locations[$key]}
+			ln -s $fullPath $destPath
 		fi
 		#If we just set status equal to $?, it checks the status of $status == 0, rather than our ln command
 		newStatus=$?
