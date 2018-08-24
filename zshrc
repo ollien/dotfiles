@@ -28,6 +28,7 @@ elif [[ $HOSTNAME == "bender" ]]; then
 	export GOPATH=$HOME/Documents/code/golang
 	export PATH=$GOPATH/bin:$PATH
 	export PATH=$HOME/.local/bin:$PATH
+	export PATH=$HOME/.local/npm/bin:$PATH
 	export EDITOR=/usr/bin/vim
 	PROMPT_COLOR=003
 elif [[ $HOSTNAME == "planet-express-ship" ]]; then
