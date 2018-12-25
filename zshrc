@@ -34,6 +34,7 @@ elif [[ $HOSTNAME == "bender" ]]; then
 elif [[ $HOSTNAME == "planet-express-ship" ]]; then
 	PROMPT_COLOR=002
 elif [[ $HOSTNAME == "nibbler" ]]; then
+	export PATH=$HOME/.local/bin:$PATH
 	PROMPT_COLOR=009
 else
 	PROMPT_COLOR=006
