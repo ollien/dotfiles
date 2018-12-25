@@ -33,6 +33,8 @@ elif [[ $HOSTNAME == "bender" ]]; then
 	PROMPT_COLOR=003
 elif [[ $HOSTNAME == "planet-express-ship" ]]; then
 	PROMPT_COLOR=002
+elif [[ $HOSTNAME == "nibbler" ]]; then
+	PROMPT_COLOR=009
 else
 	PROMPT_COLOR=006
 fi
