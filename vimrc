@@ -120,3 +120,6 @@ if ! has('gui_running')
 		au InsertLeave * set timeoutlen=1000
 	augroup END
 endif
+let g:ctrlp_custom_ignore = {
+  \ 'dir': 'node_modules\|DS_Store\'
+  \ }
