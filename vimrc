@@ -16,11 +16,8 @@ Plugin 'lumiliet/vim-twig'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'suan/vim-instant-markdown'
-Plugin 'tpope/tpope-vim-abolish'
 Plugin 'w0rp/ale'
-Plugin 'junegunn/vader.vim'
 Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'vim-airline/vim-airline'
@@ -104,11 +101,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|venv'
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_cmd = 'CtrlPTag'
 noremap <c-o> :CtrlP<CR>
-
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_python_binary_path = 'python3'
 
 let g:DoxygenToolkit_briefTag_pre=""
 
