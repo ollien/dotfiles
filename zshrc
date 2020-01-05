@@ -19,7 +19,8 @@ elif [[ $HOSTNAME == "cubert" ]]; then
 	export GOPATH=$HOME/Documents/code/golang
 	export PATH=$GOPATH/bin:$PATH
 	export PATH=$HOME/.local/npm/bin:$PATH
-	export EDITOR=/usr/bin/vim
+	export EDITOR=/usr/bin/vimx
+	alias vim=vimx
 	PROMPT_COLOR=006
 elif [[ $HOSTNAME == "bender" ]]; then
 	#$HOME/.config/powerline/segments is used for custom ALE powerline segment
@@ -28,7 +29,8 @@ elif [[ $HOSTNAME == "bender" ]]; then
 	export PATH=$GOPATH/bin:$PATH
 	export PATH=$HOME/.local/bin:$PATH
 	export PATH=$HOME/.local/npm/bin:$PATH
-	export EDITOR=/usr/bin/vim
+	export EDITOR=/usr/bin/vimx
+	alias vim=vimx
 	PROMPT_COLOR=003
 elif [[ $HOSTNAME == "planet-express-ship" ]]; then
 	PROMPT_COLOR=002
