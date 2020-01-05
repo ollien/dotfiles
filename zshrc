@@ -20,7 +20,6 @@ elif [[ $HOSTNAME == "cubert" ]]; then
 	export PATH=$GOPATH/bin:$PATH
 	export PATH=$HOME/.local/npm/bin:$PATH
 	export EDITOR=/usr/bin/vim
-	alias ssh=ssh-terminfo
 	PROMPT_COLOR=006
 elif [[ $HOSTNAME == "bender" ]]; then
 	#$HOME/.config/powerline/segments is used for custom ALE powerline segment

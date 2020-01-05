@@ -18,7 +18,7 @@ function installPlugins() {
 	scriptInstallLoc=$HOME/.local/bin
 	mkdir -p $scriptInstallLoc
 	wget -O $scriptInstallLoc/notify-send.sh https://raw.githubusercontent.com/vlevit/notify-send.sh/master/notify-send.sh
-	wget -O $scriptInstallLoc/ssh-terminfo https://raw.githubusercontent.com/kovidgoyal/kitty/master/kittens/ssh/main.py
+	chmod +x $scriptInstallLoc/notify-send.sh
 }
 
 force=false
