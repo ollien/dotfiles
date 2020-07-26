@@ -19,6 +19,7 @@ elif [[ $HOSTNAME == "cubert" ]]; then
 	export GOPATH=$HOME/Documents/code/golang
 	export PATH=$GOPATH/bin:$PATH
 	export PATH=$HOME/.local/npm/bin:$PATH
+	export PATH="$HOME/.cargo/bin:$PATH"
 	export EDITOR=/usr/bin/vimx
 	alias vim=vimx
 	PROMPT_COLOR=006
