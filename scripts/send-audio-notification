@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
-volume=$(pactl list sinks | tr ' ' '\n' | grep -m1 '%' |tr -d '[]%')
-muted=$(pactl list sinks |grep -m1 Mute |awk '{print $2}')
+running_sink=$(pactl list short sinks |grep -m1 RUNNING |awk '{print $1}')
+if [[ -z $running_sink ]]; then
+	exit 1
+fi
+
+sink_line="Sink #$running_sink"
+sed_expr=/"$sink_line"/,'$'p
+volume=$(pactl list sinks |sed -n "$sed_expr" |tr ' ' '\n' | grep -m1 '%' |tr -d '[]%')
+muted=$(pactl list sinks |sed -n "$sed_expr" |grep -m1 Mute |awk '{print $2}')
 if [[ $volume == 100 ]]; then
 	icon="audio-volume-high"
 elif [[ $volume == 0 ]] || [[ $muted == "on" ]]; then
