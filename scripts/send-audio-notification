@@ -1,21 +1,27 @@
 #!/usr/bin/env bash
 
-running_sink=$(pactl list short sinks |grep -m1 RUNNING |awk '{print $1}')
-if [[ -z $running_sink ]]; then
-	exit 1
-fi
+function assert_non_empty() {
+	if [[ -z "$1" ]]; then
+		exit 1
+	fi
+}
 
-sink_line="Sink #$running_sink"
+default_sink_name=$(pactl info |grep 'Default Sink' |awk '{print $3}')
+assert_non_empty $default_sink_name
+default_sink=$(pactl list short sinks |awk '$2 == '"\"$default_sink_name\""' {print $1}')
+assert_non_empty $default_sink
+
+sink_line="Sink #$default_sink"
 sed_expr=/"$sink_line"/,'$'p
 volume=$(pactl list sinks |sed -n "$sed_expr" |tr ' ' '\n' | grep -m1 '%' |tr -d '[]%')
 muted=$(pactl list sinks |sed -n "$sed_expr" |grep -m1 Mute |awk '{print $2}')
-if [[ $volume == 100 ]]; then
+if [[ "$volume" == 100 ]]; then
 	icon="audio-volume-high"
-elif [[ $volume == 0 ]] || [[ $muted == "on" ]]; then
+elif [[ "$volume" == 0 ]] || [[ "$muted" == "on" ]]; then
 	icon="audio-volume-muted"
 	volume=0
 else
 	icon="audio-volume-medium"
 fi
 
-$HOME/.local/bin/notify-send.sh " " -i $icon -h int:value:$volume -a "audio-notifier" -R /tmp/audio-notification-id
+$HOME/.local/bin/notify-send.sh " " -i $icon -h int:value:"$volume" -a "audio-notifier" -R /tmp/audio-notification-id
