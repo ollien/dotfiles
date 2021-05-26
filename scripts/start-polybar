@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 LOG_FILE=~/.start-polybar.out
 

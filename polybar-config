@@ -25,7 +25,7 @@ font-0 = "Cantarell:size=14;3"
 font-1 = "Liberation Mono:size=17;3"
 font-2 = "FontAwesome:pixelsize=15;3"
 modules-left = i3
-modules-right = volume battery date
+modules-right = pulseaudio battery date
 tray-position = center
 tray-maxsize = 24
 tray-padding = 2
@@ -79,15 +79,16 @@ format-prefix-foreground = ${colors.foreground}
 format-prefix-padding-right = 1
 label = %date% - %time%
 
-[module/volume]
-type = internal/volume
+[module/pulseaudio]
+type = internal/pulseaudio
+mapped = false
 format-volume-prefix = 
 format-muted-prefix = 
 format-volume-prefix-padding-right = 1
 format-muted-prefix-padding-right = 1
 format-volume = <bar-volume>
 format-muted = <label-muted>
-label-muted=─────────
+label-muted=──────────
 label-muted-font = 2
 label-muted-foreground = ${colors.foreground-alt}
 bar-volume-width = 11

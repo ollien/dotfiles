@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-volume=$(amixer get Master |awk '$0~/%/{print $5}' |tr -d '[]%' |head -n 1)
-sound_status=$(amixer get Master |awk '$0~/%/{print $6}' |tr -d '[]' |head -n 1)
+volume=$(pactl list sinks | tr ' ' '\n' | grep -m1 '%' |tr -d '[]%')
+muted=$(pactl list sinks |grep -m1 Mute |awk '{print $2}')
 if [[ $volume == 100 ]]; then
 	icon="audio-volume-high"
-elif [[ $volume == 0 ]] || [[ $sound_status == "off" ]]; then
+elif [[ $volume == 0 ]] || [[ $muted == "on" ]]; then
 	icon="audio-volume-muted"
 	volume=0
 else

@@ -49,7 +49,9 @@ else
 						  ["scripts"]="$HOME/.local/dotfile-scripts"\
 						  ["terminalrc"]="$HOME/.config/xfce4/terminal/terminalrc"\
 						  ["vimrc"]="$HOME/.vimrc"\
-						  ["zshrc"]="$HOME/.zshrc")
+						  ["zshrc"]="$HOME/.zshrc"\
+						  ["services/polybar.service"]="$HOME/.config/systemd/user/polybar.service"\
+						  )
 
 	readLocations
 

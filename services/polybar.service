@@ -1,0 +1,10 @@
+[Unit]
+Description=Start Polybar as nohup then terminate
+Requires=pipewire.service
+
+[Service]
+Type=forking
+ExecStart=%h/.local/dotfile-scripts/start-polybar
+
+[Install]
+WantedBy=multi-user.target
