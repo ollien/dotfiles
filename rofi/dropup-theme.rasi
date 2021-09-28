@@ -3,7 +3,7 @@
 	text-color: #ffffff;
 }
 
-#window {
+window {
 	position: west;
 	location: south west;
 	anchor: south west;
@@ -12,15 +12,20 @@
 	font: "Cantarell 12";
 }
 
-#mainbox {
+mainbox {
 	background-color: #002b36ee;
 }
 
 
-#listview {
+listview {
 	lines: 10;
 }
 
-#element.selected {
+element.selected {
 	background-color: #586e75ee;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
 }

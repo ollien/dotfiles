@@ -1,0 +1,7 @@
+configuration {
+	modi: "drun,window,run";
+	show-icons: true;
+	sidebar-mode: true;
+}
+
+@theme "dropup-theme.rasi"
