@@ -33,6 +33,16 @@ elif [[ $HOSTNAME == "bender" ]]; then
 	export EDITOR=/usr/bin/vimx
 	alias vim=vimx
 	PROMPT_COLOR=003
+elif [[ $HOSTNAME == "scooty-puff-jr" ]]; then
+	export PYTHONPATH=$HOME/.config/powerline/segments
+	export GOPATH=$HOME/Documents/code/golang
+	export PATH=$GOPATH/bin:$PATH
+	export PATH=$HOME/.local/bin:$PATH
+	export PATH=$HOME/.local/npm/bin:$PATH
+	export PATH="$HOME/.cargo/bin:$PATH"
+	export EDITOR=/usr/bin/vimx
+	alias vim=vimx
+	PROMPT_COLOR=004
 elif [[ $HOSTNAME == "planet-express-ship" ]]; then
 	PROMPT_COLOR=002
 elif [[ $HOSTNAME == "nibbler" ]]; then

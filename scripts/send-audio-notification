@@ -17,7 +17,7 @@ volume=$(pactl list sinks |sed -n "$sed_expr" |tr ' ' '\n' | grep -m1 '%' |tr -d
 muted=$(pactl list sinks |sed -n "$sed_expr" |grep -m1 Mute |awk '{print $2}')
 if [[ "$volume" == 100 ]]; then
 	icon="audio-volume-high"
-elif [[ "$volume" == 0 ]] || [[ "$muted" == "on" ]]; then
+elif [[ "$volume" == 0 ]] || [[ "$muted" == "on" ]] || [[ "$muted" == "yes" ]]; then
 	icon="audio-volume-muted"
 	volume=0
 else

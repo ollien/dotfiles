@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-output=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)
+output=$(upower -i /org/freedesktop/UPower/devices/battery_BAT1)
 percentage=$(echo "$output" |grep 'percentage' |awk '{print $2}')
 state=$(echo "$output" |grep 'state' |awk '{print $2}')
 
