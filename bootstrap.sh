@@ -11,5 +11,9 @@ echo "Running Bootstrap Playbook..." >&2
 ANSIBLE_LOCALHOST_WARNING=False ansible-playbook -K bootstrap/bootstrap.yml
 
 echo "Applying Chezmoi..." >&2
-SOURCE_DIR=$(dirname $(realpath $BASH_SOURCE))
-$HOME/.local/bin/chezmoi --source "$SOURCE_DIR" apply
+SOURCE_DIR=$(dirname $(realpath "$BASH_SOURCE"))
+if [[ ! -L "$HOME/.local/share/chezmoi" ]]; then
+  ln -s $SOURCE_DIR ~/.local/share/chezmoi
+fi
+
+$HOME/.local/bin/chezmoi apply
