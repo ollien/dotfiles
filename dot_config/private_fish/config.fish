@@ -14,6 +14,9 @@ alias cclip="xclip -selection clipboard"
 
 set -xp PATH $HOME/.local/bin
 
+# Workaround for juicessh
+set -Ua fish_features keyboard-protocols
+
 if status is-interactive
 	if [ -z $__prompt_primary_color ]
 		set -g __prompt_primary_color cyan
