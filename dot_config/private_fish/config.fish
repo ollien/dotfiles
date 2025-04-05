@@ -12,6 +12,8 @@ end
 
 alias cclip="xclip -selection clipboard"
 
+set -xp PATH $HOME/.local/bin
+
 if status is-interactive
 	if [ -z $__prompt_primary_color ]
 		set -g __prompt_primary_color cyan
