@@ -1,0 +1,27 @@
+---
+- name: Create Fish Directory
+  become: true
+  ansible.builtin.file:
+    path: /opt/fish
+    state: directory
+    mode: '0755'
+
+- name: Stat Fish
+  ansible.builtin.stat:
+    path: /opt/fish/fish
+  register: fish_stat_result
+
+- name: Download Fish
+  when: not fish_stat_result.stat.exists
+  ansible.builtin.get_url:
+    url: https://github.com/fish-shell/fish-shell/releases/download/4.0.1/fish-static-x86_64-4.0.1.tar.xz
+    dest: /tmp/
+    mode: '0644'
+  register: fish_download
+
+- name: Unpack Fish
+  when: not fish_download is skipped
+  become: true
+  ansible.builtin.unarchive:
+    src: "{{ fish_download.dest }}"
+    dest: /opt/fish

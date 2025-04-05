@@ -1,0 +1,13 @@
+---
+- name: Bootstrap
+  hosts: localhost
+  gather_facts: true
+  roles:
+    - role: fish
+    - role: packages
+      vars:
+        packages_to_install:
+          - fzf
+          - neovim
+    - role: neovim-plug
+    - role: chezmoi
