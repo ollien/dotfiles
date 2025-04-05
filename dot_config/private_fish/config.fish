@@ -93,6 +93,7 @@ if status is-interactive
 	fzf --fish |source
 
 	set -x FZF_CTRL_R_OPTS "--bind 'ctrl-r:down' --bind 'ctrl-s:up' --layout=reverse"
+	set fish_color_valid_path green
 end
 
 
