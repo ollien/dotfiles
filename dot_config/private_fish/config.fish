@@ -75,6 +75,8 @@ if status is-interactive
 		end
 	end
 
+	set -g fish_autosuggestion_enabled 0
+
 	fzf --fish |source
 
 	set -x FZF_CTRL_R_OPTS "--bind 'ctrl-r:down' --bind 'ctrl-s:up' --layout=reverse"
