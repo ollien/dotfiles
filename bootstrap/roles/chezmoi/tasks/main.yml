@@ -1,6 +1,6 @@
 ---
 - name: Download Chezmoi
   ansible.builtin.get_url:
-    url: https://github.com/twpayne/chezmoi/releases/download/v2.61.0/chezmoi_2.61.0_linux_amd64.tar.gz
+    url: https://github.com/twpayne/chezmoi/releases/download/v2.61.0/chezmoi-linux-amd64
     dest: "{{ local_bin.path }}/chezmoi"
     mode: "0755"

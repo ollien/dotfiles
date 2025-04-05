@@ -12,4 +12,4 @@ ANSIBLE_LOCALHOST_WARNING=False ansible-playbook -K bootstrap/bootstrap.yml
 
 echo "Applying Chezmoi..." >&2
 SOURCE_DIR=$(dirname $(realpath $BASH_SOURCE))
-chezmoi --source "$SOURCE_DIR" apply
+$HOME/.local/bin/chezmoi --source "$SOURCE_DIR" apply
