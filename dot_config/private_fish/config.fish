@@ -36,17 +36,27 @@ if status is-interactive
 
 	function fish_prompt
 		set last_status $status
-		set prefix (set_color "$__prompt_secondary_color")'['(prompt_pwd -d 0)']'(set_color reset)
+
+		set prefix_template '%s['(prompt_pwd -d 0)']%s'
+		set prefix (printf "$prefix_template" (set_color "$__prompt_secondary_color") (set_color reset))
+		set stripped_prefix (printf "$prefix_template" '' '')
+
+		set stripped_trailer '$ '
 		if [ $last_status -eq 0 ]
-			set trailer '$ '
+			set trailer "$stripped_trailer"
 		else
 			set trailer (set_color $__prompt_error_color)'$ '
 		end
 
-		set suffix (set_color "$__prompt_primary_color")(whoami)@(hostname)$trailer(set_color reset)
-		set full_prompt $prefix $suffix
-		set prompt_length (string length "$full_prompt")
-		set wrap_threshold (math $(tput cols) "* 5/8")
+		set suffix_template '%s'(whoami)'@'(hostname)"$trailer%s"
+		set suffix (printf "$suffix_template" (set_color "$__prompt_primary_color") (set_color reset))
+		set stripped_suffix (printf "$prefix_template" '' '')
+
+		set full_prompt "$prefix $suffix"
+		set full_stripped_prompt "$stripped_prefix $stripped_suffix"
+
+		set prompt_length (string length "$full_stripped_prompt")
+		set wrap_threshold (math $(tput cols) '* 5/8')
 		if [ "$prompt_length" -gt "$wrap_threshold" ]
 			echo "$prefix"
 			echo "$suffix"
