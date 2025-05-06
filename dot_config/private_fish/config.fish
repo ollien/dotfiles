@@ -13,6 +13,7 @@ end
 alias cclip="xclip -selection clipboard"
 
 set -xp PATH $HOME/.local/bin
+set -xp PATH $HOME/.local/dotfile-scripts
 
 # Workaround for juicessh
 set -Ua fish_features keyboard-protocols
