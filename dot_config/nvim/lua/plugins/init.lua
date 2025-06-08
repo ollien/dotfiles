@@ -44,4 +44,13 @@ return {
 		keys = { "sa", "sd", "sf", "sF", "sh", "sr", "sn" },
 		opts = {},
 	},
+	{
+		"MagicDuck/grug-far.nvim",
+		cmd = "GrugFar",
+		opts = {
+			showCompactInputs = true,
+			transient = true,
+			startInInsertMode = false,
+		},
+	},
 }
