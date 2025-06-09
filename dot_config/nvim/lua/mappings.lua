@@ -9,7 +9,7 @@ local function find_files()
 end
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
+map("x", "<leader>p", '"_dP')
 map("n", "<leader>o", find_files, { desc = "telescope find files" })
 map("n", "<leader>ff", find_files, { desc = "telescope find files" })
 map("n", "<leader>fk", require("telescope.builtin").keymaps, { noremap = true, desc = "telescope find keymaps" })
