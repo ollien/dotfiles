@@ -58,4 +58,8 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
+	{
+		"nmac427/vim-sleuth",
+		event = "BufCreate",
+	},
 }
