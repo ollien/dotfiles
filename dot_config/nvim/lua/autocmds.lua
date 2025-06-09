@@ -12,14 +12,20 @@ vim.api.nvim_create_autocmd("VimEnter", {
 			require("nvim-tree.api").tree.open()
 		end
 	end,
+})
 
-	vim.api.nvim_create_autocmd("BufLeave", {
-		pattern = "*",
-		callback = function()
-			if vim.bo.modifiable and vim.bo.modified and vim.bo.buftype == "" then
-				vim.cmd("write")
-			end
-		end,
-		desc = "Auto-save buffer when leaving it",
-	}),
+vim.api.nvim_create_autocmd("BufHidden", {
+	pattern = "*",
+	callback = function(data)
+		if
+			vim.api.nvim_buf_is_valid(data.buf)
+			and vim.bo[data.buf].modifiable
+			and not vim.bo[data.buf].readonly
+			and vim.bo[data.buf].modified
+			and vim.bo[data.buf].buftype == ""
+		then
+			vim.cmd("write")
+		end
+	end,
+	desc = "Auto-save buffer when leaving it",
 })
