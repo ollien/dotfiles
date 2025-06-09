@@ -59,7 +59,7 @@ return {
 		opts = {},
 	},
 	{
-		"nmac427/vim-sleuth",
+		"tpope/vim-sleuth",
 		event = "BufCreate",
 	},
 	{
