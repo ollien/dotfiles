@@ -54,4 +54,9 @@ return {
 			windowCreationCommand = "botright vsplit",
 		},
 	},
+	{
+		"kwkarlwang/bufresize.nvim",
+		event = "VeryLazy",
+		opts = {},
+	},
 }
