@@ -15,10 +15,15 @@ M.base46 = {
 }
 
 -- M.nvdash = { load_on_startup = true }
--- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
---}
+M.ui = {
+	statusline = {
+		order = { "mode", "relative_file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
+		modules = {
+			relative_file = function()
+				return require("config_util.statusline").relative_file()
+			end,
+		},
+	},
+}
 
 return M
