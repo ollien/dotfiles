@@ -11,6 +11,16 @@ return {
 		end,
 	},
 	{
+		"nvim-telescope/telescope.nvim",
+		opts = {
+			defaults = {
+				file_ignore_patterns = { ".git", "node_modules" },
+				no_ignore = false,
+				no_ignore_parent = false,
+			},
+		},
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		opts = {
 			enabled = function()

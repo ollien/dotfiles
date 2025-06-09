@@ -5,7 +5,7 @@ local grug_find = require("config_util.grug_far")
 local map = vim.keymap.set
 
 local function find_files()
-	require("telescope.builtin").find_files({ hidden = true, file_ignore_patterns = { ".git/", "node_modules/" } })
+	require("telescope.builtin").find_files({ hidden = true })
 end
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
