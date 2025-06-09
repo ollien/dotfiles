@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function(data)
 		local directory = vim.fn.isdirectory(data.file) == 1
 
-		if no_name or directory then
+		if directory then
 			if directory then
 				vim.cmd("cd " .. vim.fn.fnameescape(data.file))
 			end
@@ -12,4 +12,14 @@ vim.api.nvim_create_autocmd("VimEnter", {
 			require("nvim-tree.api").tree.open()
 		end
 	end,
+
+	vim.api.nvim_create_autocmd("BufLeave", {
+		pattern = "*",
+		callback = function()
+			if vim.bo.modifiable and vim.bo.modified and vim.bo.buftype == "" then
+				vim.cmd("write")
+			end
+		end,
+		desc = "Auto-save buffer when leaving it",
+	}),
 })
