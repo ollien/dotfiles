@@ -50,7 +50,6 @@ return {
 		opts = {
 			showCompactInputs = true,
 			transient = true,
-			startInInsertMode = false,
 			windowCreationCommand = "botright vsplit",
 		},
 	},
