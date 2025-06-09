@@ -1,4 +1,5 @@
 require("nvchad.options")
+pcall(require, "local")
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
