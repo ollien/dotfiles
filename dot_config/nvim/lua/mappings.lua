@@ -17,6 +17,7 @@ map("n", "<leader>ff", find_files, { noremap = true, desc = "telescope find file
 map("n", "<leader>fk", require("telescope.builtin").keymaps, { noremap = true, desc = "telescope find keymaps" })
 map("n", "<leader>fc", require("telescope.builtin").commands, { noremap = true, desc = "telescope find commands" })
 map("n", "<leader>fp", "<cmd>NeovimProjectDiscover<cr>", { noremap = true, desc = "telescope find projects" })
+map("n", "<leader>fb", require("telescope.builtin").buffers, { noremap = true, desc = "telescope find buffers" })
 map("n", "<leader>fr", require("telescope.builtin").resume, { noremap = true, desc = "telescope resume" })
 map("n", "<leader>fw", grug_find.find_or_open_grug_far, { noremap = true, desc = "find and replace" })
 map("n", "<leader>ae", require("avante.api").edit, { noremap = true, desc = "avante edit" })
