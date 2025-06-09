@@ -62,4 +62,53 @@ return {
 		"nmac427/vim-sleuth",
 		event = "BufCreate",
 	},
+	{
+		"yetone/avante.nvim",
+		event = "VeryLazy",
+		version = false,
+		opts = {
+			provider = "claude",
+			providers = {
+				claude = {
+					model = "claude-sonnet-4-0",
+				},
+			},
+			hints = { enabled = false },
+		},
+		build = "make",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			--- The below dependencies are optional,
+			"echasnovski/mini.pick",
+			"nvim-telescope/telescope.nvim",
+			"hrsh7th/nvim-cmp",
+			"ibhagwan/fzf-lua",
+			"stevearc/dressing.nvim",
+			"folke/snacks.nvim",
+			"nvim-tree/nvim-web-devicons",
+			{
+				"HakonHarnes/img-clip.nvim",
+				event = "VeryLazy",
+				opts = {
+					default = {
+						embed_image_as_base64 = false,
+						prompt_for_file_name = false,
+						drag_and_drop = {
+							insert_mode = true,
+						},
+						use_absolute_path = true,
+					},
+				},
+			},
+			{
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = {
+					file_types = { "markdown", "Avante" },
+				},
+				ft = { "markdown", "Avante" },
+			},
+		},
+	},
 }
