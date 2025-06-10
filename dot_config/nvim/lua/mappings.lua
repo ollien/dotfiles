@@ -1,6 +1,6 @@
 require("nvchad.mappings")
 
-local grug_find = require("config_util.grug_far")
+local grug_far = require("config_util.grug_far")
 
 local map = vim.keymap.set
 
@@ -19,7 +19,7 @@ map("n", "<leader>fc", require("telescope.builtin").commands, { noremap = true, 
 map("n", "<leader>fp", "<cmd>NeovimProjectDiscover<cr>", { noremap = true, desc = "telescope find projects" })
 map("n", "<leader>fb", require("telescope.builtin").buffers, { noremap = true, desc = "telescope find buffers" })
 map("n", "<leader>fr", require("telescope.builtin").resume, { noremap = true, desc = "telescope resume" })
-map("n", "<leader>fw", grug_find.find_or_open_grug_far, { noremap = true, desc = "find and replace" })
+map("n", "<leader>fw", grug_far.find_or_open_grug_far, { noremap = true, desc = "find and replace" })
 map("n", "<leader>ac", require("codecompanion").chat)
 map("n", "<leader>ar", require("codecompanion").last_chat)
 map("n", "<leader>ae", "<cmd>CodeCompanion<cr>")
