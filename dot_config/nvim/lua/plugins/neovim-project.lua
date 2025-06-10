@@ -15,6 +15,7 @@ return {
 		{ "Shatur/neovim-session-manager" },
 	},
 	priority = 100,
-	event = "VeryLazy",
+	-- Cannot use "VeryLazy" because otherwise LazyVim throws a buffer detection
+	-- error when this picks a buffer
+	lazy = false,
 }
-
