@@ -1,8 +1,7 @@
 return {
 	"coffebar/neovim-project",
 	opts = {
-		-- To be overridden per machine
-		projects = {},
+		-- projects to be overridden per machine
 		picker = {
 			type = "telescope",
 		},
@@ -18,3 +17,4 @@ return {
 	priority = 100,
 	event = "VeryLazy",
 }
+
