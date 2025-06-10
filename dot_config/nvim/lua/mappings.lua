@@ -1,6 +1,7 @@
 require("nvchad.mappings")
 
 local grug_far = require("config_util.grug_far")
+local dropbar_api = require("dropbar.api")
 
 local map = vim.keymap.set
 
@@ -26,5 +27,19 @@ map("n", "<leader>ae", "<cmd>CodeCompanion<cr>")
 map("x", "<leader>ae", "<cmd>'<,'>CodeCompanion<cr>")
 map("x", "<leader>aa", require("codecompanion").add)
 map("n", "<leader>h", "<cmd>noh<cr>", { desc = "clear highlighting" })
+map("n", "<leader>e", require("nvim-tree.api").tree.toggle, { desc = "toggle nvim-tree" })
 -- Remove vertical terminal mapping since we just overrode the horizontal one
 vim.keymap.del("n", "<leader>v", {})
+
+map("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
+map("n", "[;", dropbar_api.goto_context_start, { desc = "Go to start of current context" })
+map("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
+map("n", "<leader><space>", vim.diagnostic.open_float)
+local function set_rightmost_window_width()
+	local last_win = vim.fn.winnr("$")
+	vim.cmd(last_win .. "wincmd w")
+	vim.cmd("vertical resize 50%")
+end
+
+-- Then bind it
+vim.keymap.set("n", "<leader>wq", set_rightmost_window_width, { desc = "Set rightmost window to 25% width" })

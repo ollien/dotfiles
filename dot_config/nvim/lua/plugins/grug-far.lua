@@ -4,6 +4,6 @@ return {
 	opts = {
 		showCompactInputs = true,
 		transient = true,
-		windowCreationCommand = "botright vsplit",
+		windowCreationCommand = "botright vsplit | vertical resize 50%",
 	},
 }
