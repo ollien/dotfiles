@@ -25,3 +25,6 @@ map("n", "<leader>ar", require("codecompanion").last_chat)
 map("n", "<leader>ae", "<cmd>CodeCompanion<cr>")
 map("x", "<leader>ae", "<cmd>'<,'>CodeCompanion<cr>")
 map("x", "<leader>aa", require("codecompanion").add)
+map("n", "<leader>h", "<cmd>noh<cr>", { desc = "clear highlighting" })
+-- Remove vertical terminal mapping since we just overrode the horizontal one
+vim.keymap.del("n", "<leader>v", {})
