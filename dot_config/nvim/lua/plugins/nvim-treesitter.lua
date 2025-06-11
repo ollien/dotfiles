@@ -4,6 +4,7 @@ return {
 		ensure_installed = {
 			"css",
 			"elixir",
+			"erlang",
 			"gleam",
 			"html",
 			"lua",
