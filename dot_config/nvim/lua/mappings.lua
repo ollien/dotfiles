@@ -21,6 +21,12 @@ map("n", "<leader>fp", "<cmd>NeovimProjectDiscover<cr>", { noremap = true, desc 
 map("n", "<leader>fb", require("telescope.builtin").buffers, { noremap = true, desc = "telescope find buffers" })
 map("n", "<leader>fr", require("telescope.builtin").resume, { noremap = true, desc = "telescope resume" })
 map("n", "<leader>fw", grug_far.find_or_open_grug_far, { noremap = true, desc = "find and replace" })
+map(
+	"n",
+	"<leader>f*",
+	grug_far.find_or_open_grug_far_with_current_word,
+	{ noremap = true, desc = "find and replace current word" }
+)
 map("n", "<leader>ac", require("codecompanion").chat)
 map("n", "<leader>ar", require("codecompanion").last_chat)
 map("n", "<leader>ae", "<cmd>CodeCompanion<cr>")
