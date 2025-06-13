@@ -14,9 +14,30 @@ local function set_rightmost_window_width()
 	vim.cmd("vertical resize 50%")
 end
 
-map("x", "<leader>p", '"_dP')
+-- Navigation / Editing
+map("x", "<leader>p", '"_dP', { desc = "paste to blackhole" })
 map({ "x", "n" }, "<leader>d", '"_d', { noremap = true, desc = "delete to blackhole" })
 map({ "x", "n" }, "<leader>c", '"_c', { noremap = true, desc = "change to blackhole" })
+map("n", "<leader>gd", "<leader>gdzz", { desc = "jump to definition" })
+map("n", "<leader>h", "<cmd>noh<cr>", { desc = "clear highlighting" })
+map("n", "<leader><space>", vim.diagnostic.open_float)
+-- Remove vertical terminal mapping since we just overrode the horizontal one
+vim.keymap.del("n", "<leader>v", {})
+
+map("n", "<leader>ry", function()
+	local relative_path = path.get_relative_path()
+	vim.fn.setreg("+", relative_path)
+
+	print("Copied " .. relative_path)
+end, { desc = "copy relative path " })
+
+-- Buffer and window management
+map("n", "<leader>wq", set_rightmost_window_width, { desc = "set rightmost window to 25% width" })
+map("n", "<leader>q", "<cmd>bd#<cr>", { desc = "close buffer" })
+map("n", "<leader>qa", "<cmd>%bd<cr>", { desc = "close all buffers" })
+map("n", "<leader>qo", "<cmd>%bd | e#<cr>", { desc = "close other buffers" })
+
+-- Telescope
 map("n", "<leader>o", find_files, { noremap = true, desc = "telescope find files" })
 map("n", "<leader>ff", find_files, { noremap = true, desc = "telescope find files" })
 map("n", "<leader>fp", "<cmd>NeovimProjectDiscover<cr>", { noremap = true, desc = "telescope find projects" })
@@ -37,6 +58,7 @@ map("n", "<leader>fr", function()
 	require("telescope.builtin").resume()
 end, { noremap = true, desc = "telescope resume" })
 
+-- Grug Far
 map("n", "<leader>fw", function()
 	require("config_util.grug_far").find_or_open_grug_far()
 end, { noremap = true, desc = "find and replace" })
@@ -45,6 +67,7 @@ map("n", "<leader>f*", function()
 	require("config_util.grug_far").find_or_open_grug_far_with_current_word()
 end, { noremap = true, desc = "find and replace current word" })
 
+-- Code Companion
 map("n", "<leader>ae", "<cmd>CodeCompanion<cr>")
 map("x", "<leader>ae", "<cmd>'<,'>CodeCompanion<cr>")
 
@@ -60,13 +83,12 @@ map("x", "<leader>aa", function()
 	require("codecompanion").add()
 end)
 
+-- Nvim Tree
 map("n", "<leader>e", function()
 	require("nvim-tree.api").tree.toggle()
 end, { desc = "toggle nvim-tree" })
 
--- Remove vertical terminal mapping since we just overrode the horizontal one
-vim.keymap.del("n", "<leader>v", {})
-
+-- Dropbar
 map("n", "<Leader>;", function()
 	require("dropbar.api").pick()
 end, { desc = "Pick symbols in winbar" })
@@ -78,18 +100,3 @@ end, { desc = "Go to start of current context" })
 map("n", "];", function()
 	require("dropbar.api").select_next_context()
 end, { desc = "Select next context" })
-
-map("n", "<leader>ry", function()
-	local relative_path = path.get_relative_path()
-	vim.fn.setreg("+", relative_path)
-
-	print("Copied " .. relative_path)
-end, { desc = "copy relative path " })
-
-map("n", "<leader>gd", "<leader>gdzz", { desc = "jump to definition" })
-map("n", "<leader>h", "<cmd>noh<cr>", { desc = "clear highlighting" })
-map("n", "<leader>wq", set_rightmost_window_width, { desc = "set rightmost window to 25% width" })
-map("n", "<leader><space>", vim.diagnostic.open_float)
-map("n", "<leader>q", "<cmd>bd#<cr>", { desc = "close buffer" })
-map("n", "<leader>qa", "<cmd>%bd<cr>", { desc = "close all buffers" })
-map("n", "<leader>qo", "<cmd>%bd | e#<cr>", { desc = "close other buffers" })
