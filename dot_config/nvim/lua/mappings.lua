@@ -19,11 +19,23 @@ map({ "x", "n" }, "<leader>d", '"_d', { noremap = true, desc = "delete to blackh
 map({ "x", "n" }, "<leader>c", '"_c', { noremap = true, desc = "change to blackhole" })
 map("n", "<leader>o", find_files, { noremap = true, desc = "telescope find files" })
 map("n", "<leader>ff", find_files, { noremap = true, desc = "telescope find files" })
-map("n", "<leader>fk", require("telescope.builtin").keymaps, { noremap = true, desc = "telescope find keymaps" })
-map("n", "<leader>fc", require("telescope.builtin").commands, { noremap = true, desc = "telescope find commands" })
 map("n", "<leader>fp", "<cmd>NeovimProjectDiscover<cr>", { noremap = true, desc = "telescope find projects" })
-map("n", "<leader>fb", require("telescope.builtin").buffers, { noremap = true, desc = "telescope find buffers" })
-map("n", "<leader>fr", require("telescope.builtin").resume, { noremap = true, desc = "telescope resume" })
+
+map("n", "<leader>fk", function()
+	require("telescope.builtin").keymaps()
+end, { noremap = true, desc = "telescope find keymaps" })
+
+map("n", "<leader>fc", function()
+	require("telescope.builtin").commands()
+end, { noremap = true, desc = "telescope find commands" })
+
+map("n", "<leader>fb", function()
+	require("telescope.builtin").buffers()
+end, { noremap = true, desc = "telescope find buffers" })
+
+map("n", "<leader>fr", function()
+	require("telescope.builtin").resume()
+end, { noremap = true, desc = "telescope resume" })
 
 map("n", "<leader>fw", function()
 	require("config_util.grug_far").find_or_open_grug_far()
