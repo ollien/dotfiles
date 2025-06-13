@@ -1,13 +1,17 @@
 require("nvchad.mappings")
 
-local grug_far = require("config_util.grug_far")
 local path = require("config_util.path")
-local dropbar_api = require("dropbar.api")
 
 local map = vim.keymap.set
 
 local function find_files()
 	require("telescope.builtin").find_files({ hidden = true })
+end
+
+local function set_rightmost_window_width()
+	local last_win = vim.fn.winnr("$")
+	vim.cmd(last_win .. "wincmd w")
+	vim.cmd("vertical resize 50%")
 end
 
 map("x", "<leader>p", '"_dP')
@@ -20,34 +24,48 @@ map("n", "<leader>fc", require("telescope.builtin").commands, { noremap = true, 
 map("n", "<leader>fp", "<cmd>NeovimProjectDiscover<cr>", { noremap = true, desc = "telescope find projects" })
 map("n", "<leader>fb", require("telescope.builtin").buffers, { noremap = true, desc = "telescope find buffers" })
 map("n", "<leader>fr", require("telescope.builtin").resume, { noremap = true, desc = "telescope resume" })
-map("n", "<leader>fw", grug_far.find_or_open_grug_far, { noremap = true, desc = "find and replace" })
-map(
-	"n",
-	"<leader>f*",
-	grug_far.find_or_open_grug_far_with_current_word,
-	{ noremap = true, desc = "find and replace current word" }
-)
-map("n", "<leader>ac", require("codecompanion").chat)
-map("n", "<leader>ar", require("codecompanion").last_chat)
+
+map("n", "<leader>fw", function()
+	require("config_util.grug_far").find_or_open_grug_far()
+end, { noremap = true, desc = "find and replace" })
+
+map("n", "<leader>f*", function()
+	require("config_util.grug_far").find_or_open_grug_far_with_current_word()
+end, { noremap = true, desc = "find and replace current word" })
+
 map("n", "<leader>ae", "<cmd>CodeCompanion<cr>")
 map("x", "<leader>ae", "<cmd>'<,'>CodeCompanion<cr>")
-map("x", "<leader>aa", require("codecompanion").add)
-map("n", "<leader>h", "<cmd>noh<cr>", { desc = "clear highlighting" })
-map("n", "<leader>e", require("nvim-tree.api").tree.toggle, { desc = "toggle nvim-tree" })
+
+map("n", "<leader>ac", function()
+	require("codecompanion").chat()
+end)
+
+map("n", "<leader>ar", function()
+	require("codecompanion").last_chat()
+end)
+
+map("x", "<leader>aa", function()
+	require("codecompanion").add()
+end)
+
+map("n", "<leader>e", function()
+	require("nvim-tree.api").tree.toggle()
+end, { desc = "toggle nvim-tree" })
+
 -- Remove vertical terminal mapping since we just overrode the horizontal one
 vim.keymap.del("n", "<leader>v", {})
 
-map("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
-map("n", "[;", dropbar_api.goto_context_start, { desc = "Go to start of current context" })
-map("n", "];", dropbar_api.select_next_context, { desc = "Select next context" })
-map("n", "<leader><space>", vim.diagnostic.open_float)
-local function set_rightmost_window_width()
-	local last_win = vim.fn.winnr("$")
-	vim.cmd(last_win .. "wincmd w")
-	vim.cmd("vertical resize 50%")
-end
+map("n", "<Leader>;", function()
+	require("dropbar.api").pick()
+end, { desc = "Pick symbols in winbar" })
 
-map("n", "<leader>wq", set_rightmost_window_width, { desc = "set rightmost window to 25% width" })
+map("n", "[;", function()
+	require("dropbar.api").goto_context_start()
+end, { desc = "Go to start of current context" })
+
+map("n", "];", function()
+	require("dropbar.api").select_next_context()
+end, { desc = "Select next context" })
 
 map("n", "<leader>ry", function()
 	local relative_path = path.get_relative_path()
@@ -55,4 +73,8 @@ map("n", "<leader>ry", function()
 
 	print("Copied " .. relative_path)
 end, { desc = "copy relative path " })
+
 map("n", "<leader>gd", "<leader>gdzz", { desc = "jump to definition" })
+map("n", "<leader>h", "<cmd>noh<cr>", { desc = "clear highlighting" })
+map("n", "<leader>wq", set_rightmost_window_width, { desc = "set rightmost window to 25% width" })
+map("n", "<leader><space>", vim.diagnostic.open_float)
