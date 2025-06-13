@@ -5,6 +5,4 @@ return {
 			side = "right",
 		},
 	},
-	-- This should lazy load based on commands but the reality is that we get weird races with this
-	event = "VeryLazy",
 }
