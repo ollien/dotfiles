@@ -6,6 +6,7 @@ vim.opt.softtabstop = 4
 vim.opt.ignorecase = false
 vim.opt.smartcase = false
 vim.opt.spell = true
+vim.opt.spelloptions = "camel"
 
 vim.o.relativenumber = true
 vim.o.number = true
