@@ -5,6 +5,8 @@ return {
 		picker = {
 			type = "telescope",
 		},
+		last_session_on_startup = false,
+		dashboard_mode = true,
 	},
 	init = function()
 		vim.opt.sessionoptions:append("globals")
@@ -14,8 +16,11 @@ return {
 		{ "nvim-telescope/telescope.nvim" },
 		{ "Shatur/neovim-session-manager" },
 	},
-	priority = 100,
-	-- Cannot use "VeryLazy" because otherwise LazyVim throws a buffer detection
-	-- error when this picks a buffer
-	lazy = false,
+	cmd = {
+		"NeovimProjectDiscover",
+		"NeovimProjectHistory",
+		"NeovimProjectLoadRecent",
+		"NeovimProjectLoadHist",
+		"NeovimProjectLoad",
+	},
 }
