@@ -4,6 +4,7 @@ return {
 	opts = {
 		showCompactInputs = true,
 		transient = true,
-		windowCreationCommand = "botright vsplit | vertical resize 50%",
+		wrap = false,
+		windowCreationCommand = "botright vsplit | vertical resize 50% | lua vim.wo.statuscolumn = '%s %{v:relnum == 0 ? \" \" : v:relnum} '",
 	},
 }

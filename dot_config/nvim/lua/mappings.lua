@@ -1,6 +1,7 @@
 require("nvchad.mappings")
 
 local grug_far = require("config_util.grug_far")
+local path = require("config_util.path")
 local dropbar_api = require("dropbar.api")
 
 local map = vim.keymap.set
@@ -9,7 +10,6 @@ local function find_files()
 	require("telescope.builtin").find_files({ hidden = true })
 end
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
 map("x", "<leader>p", '"_dP')
 map({ "x", "n" }, "<leader>d", '"_d', { noremap = true, desc = "delete to blackhole" })
 map({ "x", "n" }, "<leader>c", '"_c', { noremap = true, desc = "change to blackhole" })
@@ -47,5 +47,12 @@ local function set_rightmost_window_width()
 	vim.cmd("vertical resize 50%")
 end
 
--- Then bind it
-vim.keymap.set("n", "<leader>wq", set_rightmost_window_width, { desc = "Set rightmost window to 25% width" })
+map("n", "<leader>wq", set_rightmost_window_width, { desc = "set rightmost window to 25% width" })
+
+map("n", "<leader>ry", function()
+	local relative_path = path.get_relative_path()
+	vim.fn.setreg("+", relative_path)
+
+	print("Copied " .. relative_path)
+end, { desc = "copy relative path " })
+map("n", "<leader>gd", "<leader>gdzz", { desc = "jump to definition" })

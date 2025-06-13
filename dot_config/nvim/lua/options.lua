@@ -6,3 +6,7 @@ vim.opt.softtabstop = 4
 vim.opt.ignorecase = false
 vim.opt.smartcase = false
 vim.opt.spell = true
+
+vim.o.relativenumber = true
+vim.o.number = true
+vim.o.statuscolumn = "%s%{v:lnum}  %{v:relnum == 0 ? ' ' : v:relnum} "
