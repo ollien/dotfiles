@@ -33,7 +33,6 @@ vim.api.nvim_create_autocmd("BufHidden", {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "NvimTree",
 	callback = function()
-		print("NvimTree filetype detected!")
 		vim.opt_local.statuscolumn = "%{v:relnum == 0 ? ' ' : v:relnum}"
 	end,
 })
