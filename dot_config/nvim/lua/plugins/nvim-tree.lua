@@ -4,5 +4,8 @@ return {
 		view = {
 			side = "right",
 		},
+		git = {
+			ignore = false,
+		},
 	},
 }
