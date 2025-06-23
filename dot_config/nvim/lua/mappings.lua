@@ -18,11 +18,10 @@ end
 map("x", "<leader>p", '"_dP', { desc = "paste to blackhole" })
 map({ "x", "n" }, "<leader>d", '"_d', { noremap = true, desc = "delete to blackhole" })
 map({ "x", "n" }, "<leader>c", '"_c', { noremap = true, desc = "change to blackhole" })
-map("n", "<leader>gd", "<leader>gdzz", { desc = "jump to definition" })
 map("n", "<leader>h", "<cmd>noh<cr>", { desc = "clear highlighting" })
-map("n", "<leader><space>", vim.diagnostic.open_float)
 -- Remove vertical terminal mapping since we just overrode the horizontal one
 vim.keymap.del("n", "<leader>v", {})
+map("n", "<leader><space>", vim.diagnostic.open_float)
 
 map("n", "<leader>ry", function()
 	local relative_path = path.get_relative_path()
