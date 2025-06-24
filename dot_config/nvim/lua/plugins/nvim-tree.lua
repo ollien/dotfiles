@@ -3,6 +3,8 @@ return {
 	opts = {
 		view = {
 			side = "right",
+			number = false,
+			relativenumber = true,
 		},
 		git = {
 			ignore = false,
