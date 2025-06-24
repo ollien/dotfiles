@@ -29,6 +29,13 @@ map("n", "<leader>ry", function()
 
 	print("Copied " .. relative_path)
 end, { desc = "copy relative path " })
+map("n", "Q", function()
+	local word = vim.fn.expand("<cword>")
+	if word ~= "" then
+		vim.fn.setreg("/", "\\<" .. word .. "\\>")
+		vim.opt.hlsearch = true
+	end
+end, { desc = "highlight current word" })
 
 -- Buffer and window management
 map("n", "<leader>wq", set_rightmost_window_width, { desc = "set rightmost window to 25% width" })
