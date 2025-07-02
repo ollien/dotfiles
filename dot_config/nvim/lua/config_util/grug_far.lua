@@ -16,7 +16,6 @@ end
 function M.find_or_open_grug_far()
 	local instance = grug_far_instances.get_instance(nil)
 	if instance then
-		print(instance)
 		switch_to_buffer_window(instance:get_buf())
 	else
 		grug_far.open()
