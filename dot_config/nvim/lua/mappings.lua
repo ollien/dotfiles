@@ -66,7 +66,7 @@ end, { noremap = true, desc = "telescope resume" })
 
 -- Grug Far
 map("n", "<leader>fw", function()
-	require("config_util.grug_far").find_or_open_grug_far()
+	require("config_util.grug_far").toggle_grug_far()
 end, { noremap = true, desc = "find and replace" })
 
 map("n", "<leader>f*", function()

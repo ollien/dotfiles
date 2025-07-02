@@ -6,17 +6,16 @@ local function switch_to_buffer_window(buf)
 	local wins = vim.fn.win_findbuf(buf)
 	if #wins > 0 then
 		vim.api.nvim_set_current_win(wins[1])
-
 		return true
 	else
 		return false
 	end
 end
 
-function M.find_or_open_grug_far()
+function M.toggle_grug_far()
 	local instance = grug_far_instances.get_instance(nil)
 	if instance then
-		switch_to_buffer_window(instance:get_buf())
+		instance:close()
 	else
 		grug_far.open()
 	end
