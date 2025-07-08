@@ -3,7 +3,7 @@ return {
 	opts = {
 		-- projects to be overridden per machine
 		picker = {
-			type = "telescope",
+			type = "builtin",
 		},
 		last_session_on_startup = false,
 		dashboard_mode = true,
@@ -13,7 +13,7 @@ return {
 	end,
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-telescope/telescope.nvim" },
+		{ "folks/snacks.nvim" },
 		{ "Shatur/neovim-session-manager" },
 	},
 	cmd = {
