@@ -10,7 +10,7 @@ return {
 			sources = {
 				select = {
 					config = function(opts)
-						local max = vim.o.lines * 0.8 - 10
+						local max = math.floor(vim.o.lines * 0.8 - 10)
 						-- Hack: this is to work around these two issues
 						-- https://github.com/folke/snacks.nvim/issues/2035
 						-- https://github.com/folke/snacks.nvim/issues/902#issuecomment-2649284650
