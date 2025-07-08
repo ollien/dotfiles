@@ -5,7 +5,7 @@ local path = require("config_util.path")
 local map = vim.keymap.set
 
 local function find_files()
-	require("telescope.builtin").find_files({ hidden = true })
+	require("snacks").picker.files({ hidden = true })
 end
 
 local function set_rightmost_window_width()
@@ -44,25 +44,25 @@ map("n", "<leader>qa", "<cmd>%bd<cr>", { desc = "close all buffers" })
 map("n", "<leader>qo", "<cmd>%bd | e#<cr>", { desc = "close other buffers" })
 
 -- Telescope
-map("n", "<leader>o", find_files, { noremap = true, desc = "telescope find files" })
-map("n", "<leader>ff", find_files, { noremap = true, desc = "telescope find files" })
+map("n", "<leader>o", find_files, { noremap = true, desc = "snacks find files" })
+map("n", "<leader>ff", find_files, { noremap = true, desc = "snacks find files" })
 map("n", "<leader>fp", "<cmd>NeovimProjectDiscover<cr>", { noremap = true, desc = "telescope find projects" })
 
 map("n", "<leader>fk", function()
-	require("telescope.builtin").keymaps()
-end, { noremap = true, desc = "telescope find keymaps" })
+	require("snacks").picker.keymaps()
+end, { noremap = true, desc = "snacks find keymaps" })
 
 map("n", "<leader>fc", function()
-	require("telescope.builtin").commands()
-end, { noremap = true, desc = "telescope find commands" })
+	require("snacks").picker.commands()
+end, { noremap = true, desc = "snacks find commands" })
 
 map("n", "<leader>fb", function()
-	require("telescope.builtin").buffers()
-end, { noremap = true, desc = "telescope find buffers" })
+	require("snacks").picker.buffers()
+end, { noremap = true, desc = "snacks find buffers" })
 
 map("n", "<leader>fr", function()
-	require("telescope.builtin").resume()
-end, { noremap = true, desc = "telescope resume" })
+	require("snacks").picker.resume()
+end, { noremap = true, desc = "snacks resume" })
 
 -- Grug Far
 map("n", "<leader>fw", function()
