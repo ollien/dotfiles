@@ -7,5 +7,8 @@ return {
 		callback = function(msg)
 			require("notify")(msg)
 		end,
+		disabled_filetypes = {
+			["blame"] = true,
+		},
 	},
 }
