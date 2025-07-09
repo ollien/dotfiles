@@ -1,3 +1,4 @@
 ~/.config/nvim/lua/configs/conform.lua
 ~/.config/nvim/lua/plugins/nvim-navic.lua
 ~/.config/nvim/lua/plugins/vim-illuminate.lua
+~/.config/nvim/lua/plugins/telescope.lua
