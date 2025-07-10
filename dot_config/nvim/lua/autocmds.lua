@@ -39,11 +39,6 @@ vim.api.nvim_create_autocmd("FileType", {
 			return
 		end
 
-		-- Skip if buffer is not listed (temporary buffers)
-		if not vim.bo[args.buf].buflisted then
-			return
-		end
-
 		if vim.bo.filetype == "NvimTree" then
 			vim.opt_local.statuscolumn = vim.g.nvim_tree_statuscolumn
 		else
