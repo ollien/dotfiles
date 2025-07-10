@@ -31,8 +31,11 @@ vim.api.nvim_create_autocmd("BufHidden", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "NvimTree",
 	callback = function()
-		vim.opt_local.statuscolumn = ""
+		if vim.bo.filetype == "NvimTree" then
+			vim.opt_local.statuscolumn = vim.g.nvim_tree_statuscolumn
+		else
+			vim.opt_local.statuscolumn = vim.g.default_statuscolumn
+		end
 	end,
 })

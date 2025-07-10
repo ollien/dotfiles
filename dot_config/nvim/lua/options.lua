@@ -10,4 +10,8 @@ vim.opt.spelloptions = "camel"
 
 vim.o.relativenumber = true
 vim.o.number = true
-vim.o.statuscolumn = "%s%{v:lnum}  %{v:relnum == 0 ? ' ' : v:relnum} "
+
+vim.g.default_statuscolumn = "%s%{v:lnum}  %{v:relnum == 0 ? ' ' : v:relnum} "
+vim.g.nvim_tree_statuscolumn = ""
+
+vim.o.statuscolumn = vim.g.default_statuscolumn
