@@ -2,3 +2,4 @@
 ~/.config/nvim/lua/plugins/nvim-navic.lua
 ~/.config/nvim/lua/plugins/vim-illuminate.lua
 ~/.config/nvim/lua/plugins/telescope.lua
+~/.config/nvim/lua/plugins/vim-fugitive.lua
