@@ -3,7 +3,7 @@ return {
 	opts = {
 		-- projects to be overridden per machine
 		picker = {
-			type = "builtin",
+			type = "snacks",
 		},
 		last_session_on_startup = false,
 		dashboard_mode = true,
