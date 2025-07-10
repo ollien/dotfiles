@@ -31,7 +31,19 @@ vim.api.nvim_create_autocmd("BufHidden", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	callback = function()
+	callback = function(args)
+		-- Skip if this is a floating window (like hover popups)
+		local win = vim.api.nvim_get_current_win()
+		local config = vim.api.nvim_win_get_config(win)
+		if config.relative ~= "" then
+			return
+		end
+
+		-- Skip if buffer is not listed (temporary buffers)
+		if not vim.bo[args.buf].buflisted then
+			return
+		end
+
 		if vim.bo.filetype == "NvimTree" then
 			vim.opt_local.statuscolumn = vim.g.nvim_tree_statuscolumn
 		else
