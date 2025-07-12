@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 
-	opts = function(opts)
+	opts = function(_plugin, opts)
 		-- stupid workaround for the fact that the gleam parser broke with the new nvim-treesitter
 		-- stolen from https://github.com/rawhat/config/blob/master/config/nvim/lua/plugins/treesitter.lua#L94
 		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
@@ -14,7 +14,7 @@ return {
 			filetype = "gleam",
 		}
 
-		vim.tbl_deep_extend("force", opts, {
+		return vim.tbl_deep_extend("force", opts, {
 			ensure_installed = {
 				"css",
 				"elixir",
