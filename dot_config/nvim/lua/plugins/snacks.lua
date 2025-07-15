@@ -7,6 +7,11 @@ return {
 			layout = {
 				preset = "vscode",
 			},
+			formatters = {
+				file = {
+					truncate = 80,
+				},
+			},
 			sources = {
 				select = {
 					config = function(opts)
@@ -27,10 +32,6 @@ return {
 				frecency = true,
 				history_bonus = true,
 			},
-		},
-		indent = {
-			enabled = true,
-			animate = { enabled = false },
 		},
 	},
 }

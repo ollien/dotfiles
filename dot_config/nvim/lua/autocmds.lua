@@ -1,4 +1,5 @@
 require("nvchad.autocmds")
+local listchars = require("config_util.listchars")
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function(data)
@@ -44,5 +45,23 @@ vim.api.nvim_create_autocmd("FileType", {
 		else
 			vim.opt_local.statuscolumn = vim.g.default_statuscolumn
 		end
+	end,
+})
+
+vim.api.nvim_create_augroup("indent_line", { clear = true })
+vim.api.nvim_create_autocmd({ "OptionSet" }, {
+	group = "indent_line",
+	pattern = { "shiftwidth", "expandtab", "tabstop" },
+	callback = function()
+		listchars.update(vim.v.option_type == "local")
+	end,
+})
+-- OptionSet is not triggered on startup
+-- This may be not needed. The listchars has been set properly in options.vim and it will be sourced
+-- on startup.
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+	group = "indent_line",
+	callback = function()
+		listchars.update(false)
 	end,
 })
