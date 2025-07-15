@@ -1,6 +1,9 @@
 return {
 	"hrsh7th/nvim-cmp",
 	opts = {
+		completion = {
+			completeopt = "noselect",
+		},
 		enabled = function()
 			local disabled = false
 			disabled = disabled or (vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "prompt")
