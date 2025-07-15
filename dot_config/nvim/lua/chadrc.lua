@@ -8,6 +8,10 @@ local M = {}
 M.base46 = {
 	theme = "everforest",
 
+	hl_override = {
+		NonText = { fg = "#525c63" },
+	},
+
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },
