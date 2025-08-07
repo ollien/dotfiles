@@ -24,4 +24,4 @@ else
 	icon="audio-volume-medium"
 fi
 
-$HOME/.local/bin/notify-send.sh " " -i $icon -h int:value:"$volume" -a "audio-notifier" -R /tmp/audio-notification-id
+$HOME/.local/dotfile-scripts/notify-send.sh " " -i $icon -h int:value:"$volume" -a "audio-notifier" -R /tmp/audio-notification-id
