@@ -8,5 +8,5 @@ return {
 			after = "fg",
 		},
 	},
-	event = "BufCreate",
+	event = "BufAdd",
 }

@@ -5,9 +5,9 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			elixir = { "mix" },
-			javascript = {"prettier"},
-			typescript = {"prettier"},
-			yaml = {"prettier"},
+			javascript = { "prettier" },
+			typescript = { "prettier" },
+			yaml = { "prettier" },
 		},
 
 		format_on_save = {
