@@ -10,6 +10,11 @@ function plsboot
 	end
 end
 
+function take
+    mkdir -p $argv[1]
+    and cd $argv[1]
+end
+
 alias cclip="xclip -selection clipboard"
 
 set -xp PATH $HOME/.local/bin
