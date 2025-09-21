@@ -1,0 +1,4 @@
+{{/* Work machines need a special configuration for elixir */}}
+{{ if ne .env "work"}}
+vim.lsp.enable("expert")
+{{ end }}
