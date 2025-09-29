@@ -4,3 +4,4 @@
 ~/.config/nvim/lua/plugins/telescope.lua
 ~/.config/nvim/lua/plugins/vim-fugitive.lua
 ~/.config/nvim/lua/plugins/fff.lua
+~/.config/nvim/lua/extra/fff_snacks.lua
