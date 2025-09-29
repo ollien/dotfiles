@@ -3,3 +3,4 @@
 ~/.config/nvim/lua/plugins/vim-illuminate.lua
 ~/.config/nvim/lua/plugins/telescope.lua
 ~/.config/nvim/lua/plugins/vim-fugitive.lua
+~/.config/nvim/lua/plugins/fff.lua
