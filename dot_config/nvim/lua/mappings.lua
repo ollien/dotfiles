@@ -5,7 +5,7 @@ local path = require("config_util.path")
 local map = vim.keymap.set
 
 local function find_files()
-	require("extra.fff_snacks").fff()
+	require("snacks").picker.files({ hidden = true })
 end
 
 local function set_rightmost_window_width()
