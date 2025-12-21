@@ -22,7 +22,7 @@ local plugin_config = {
 	{
 		"NvChad/NvChad",
 		lazy = false,
-		branch = "v2.5",
+		branch = "dev",
 		import = "nvchad.plugins",
 	},
 	{ import = "plugins" },
