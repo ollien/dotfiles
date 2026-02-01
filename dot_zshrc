@@ -13,6 +13,7 @@
 
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=grey,fg=white,bold'
 
 #
 # Input/output
@@ -56,6 +57,11 @@ WORDCHARS=${WORDCHARS//[\/]}
 # See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
 # If none is provided, the default '%n@%m: %~' is used.
 #zstyle ':zim:termtitle' format '%1~'
+
+#
+# utility
+GREP_COLOR="red"
+GREP_COLORS="mt=${GREP_COLOR}"
 
 # zsh-syntax-highlighting
 #
