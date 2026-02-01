@@ -17,3 +17,6 @@ if [[ ! -L "$HOME/.local/share/chezmoi" ]]; then
 fi
 
 $HOME/.local/bin/chezmoi apply
+
+echo "Installing Zim modules..." >&2
+zsh -ic 'zimfw install'
