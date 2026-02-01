@@ -1,5 +1,5 @@
-path=($HOME/.local/bin $HOME/.local/dotfile-scripts $path)
-export PATH
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/dotfile-scripts:$PATH"
 
 alias cclip='xclip -selection clipboard'
 
