@@ -72,6 +72,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]='fg=green'
 ZSH_HIGHLIGHT_STYLES[arg0]='none'
+ZSH_HIGHLIGHT_STYLES[precommand]='none'
 
 
 # Customize the main highlighter styles.
