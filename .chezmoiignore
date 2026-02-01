@@ -4,4 +4,4 @@ bootstrap.sh
 bootstrap
 .config/nvim/**/local.lua
 .config/nvim/**/local
-~/.zim/modules/**/*.zwc
+.zim/modules/**/*.zwc
