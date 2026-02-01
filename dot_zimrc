@@ -20,9 +20,9 @@ zmodule utility
 # <-- Normally new modules should be added here. Check each module documentation
 # for any caveats.
 
-zmodule local
-zmodule dotfile-utils
-zmodule host-theme
+zmodule local -u mkdir
+zmodule dotfile-utils -u mkdir
+zmodule host-theme -u mkdir
 
 #
 # Prompt
