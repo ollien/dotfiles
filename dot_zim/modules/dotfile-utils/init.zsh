@@ -21,3 +21,4 @@ take() {
 
 unsetopt autocd
 setopt clobber
+unsetopt HIST_VERIFY
