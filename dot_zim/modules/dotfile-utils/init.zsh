@@ -18,3 +18,6 @@ plsboot() {
 take() {
   [[ -n ${1} ]] && mkdir -p ${1} && builtin cd ${1}
 }
+
+unsetopt autocd
+setopt clobber
