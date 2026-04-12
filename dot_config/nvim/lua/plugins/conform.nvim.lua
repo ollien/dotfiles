@@ -20,7 +20,11 @@ return {
 	opts = {
 		notify_on_error = false,
 		format_on_save = function(bufnr)
-			if config.disabled_filetypes[vim.bo[bufnr].filetype] then
+			if
+				config.disabled_filetypes[vim.bo[bufnr].filetype]
+				or vim.g.disable_autoformat
+				or vim.b[bufnr].disable_autoformat
+			then
 				return nil
 			else
 				return {
