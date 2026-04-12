@@ -22,4 +22,7 @@ return {
 		"NeovimProjectLoadHist",
 		"NeovimProjectLoad",
 	},
+	keys = {
+		{ "<leader>fp", "<cmd>NeovimProjectDiscover<cr>", desc = "Find projects" },
+	},
 }
