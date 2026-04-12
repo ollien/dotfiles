@@ -9,7 +9,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.statuscolumn = vim.g.default_statuscolumn
 
-vim.o.mouse = "a"
+vim.o.mouse = "nv"
 
 vim.o.breakindent = true
 
