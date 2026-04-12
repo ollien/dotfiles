@@ -18,7 +18,7 @@ return {
 	plugin("nvim-mini/mini.nvim"),
 	plugin("nvim-tree/nvim-tree.lua"),
 	plugin("nvim-tree/nvim-web-devicons"),
-	plugin("nvim-treesitter/nvim-treesitter"),
+	plugin("romus204/tree-sitter-manager.nvim"),
 	plugin("saghen/blink.cmp"),
 	plugin("sainnhe/everforest"),
 	plugin("stevearc/conform.nvim"),
