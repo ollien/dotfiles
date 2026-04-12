@@ -13,8 +13,6 @@ vim.o.mouse = "a"
 
 vim.o.breakindent = true
 
-vim.o.confirm = true
-
 vim.o.undofile = true
 
 vim.o.ignorecase = false
@@ -31,11 +29,12 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
-vim.o.inccommand = "split"
+vim.o.inccommand = "nosplit"
 vim.o.scrolloff = 10
 vim.o.cursorline = true
 
 vim.opt.tabstop = 4
+
 vim.opt.softtabstop = 4
 
 vim.opt.spell = true
