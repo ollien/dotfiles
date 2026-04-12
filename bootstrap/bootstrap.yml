@@ -11,4 +11,5 @@
           - curl
           - ripgrep
           - fd-find
+          - tree-sitter-cli
     - role: chezmoi
