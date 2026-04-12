@@ -62,3 +62,5 @@ vim.diagnostic.config({
 	underline = true,
 	float = { border = "single" },
 })
+
+require("_local.options")

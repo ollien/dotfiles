@@ -1,6 +1,7 @@
+local with_local = require("configutil.with_local")
 local plugin = require("configutil.plugin")
 
-return {
+local plugins = {
 	plugin("Bekaboo/dropbar.nvim"),
 	plugin("coffebar/neovim-project"),
 	plugin("FabijanZulj/blame.nvim"),
@@ -24,3 +25,5 @@ return {
 	plugin("stevearc/conform.nvim"),
 	plugin("tpope/vim-sleuth"),
 }
+
+return with_local("plugins.lua", { list = true, base_config = plugins })

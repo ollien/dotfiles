@@ -36,3 +36,5 @@ vim.keymap.set("x", "<leader>p", '"_dP', { desc = "paste to blackhole" })
 vim.keymap.set({ "x", "n" }, "<leader>d", '"_d', { noremap = true, desc = "delete to blackhole" })
 vim.keymap.set({ "x", "n" }, "<leader>c", '"_c', { noremap = true, desc = "change to blackhole" })
 vim.keymap.set("n", "<leader>h", "<cmd>noh<cr>", { desc = "clear highlighting" })
+
+require("_local.mappings")

@@ -61,3 +61,5 @@ vim.api.nvim_create_autocmd("FileType", {
 		end
 	end,
 })
+
+require("_local.autocmds")
