@@ -1,5 +1,19 @@
-require("nvchad.autocmds")
-local listchars = require("config_util.listchars")
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.hl.on_yank()
+	end,
+})
+
+local listchars = require("configutil.listchars")
+vim.api.nvim_create_autocmd({ "OptionSet" }, {
+	desc = "setup listchars when options change",
+	pattern = { "shiftwidth", "expandtab", "tabstop" },
+	callback = function()
+		listchars.update(vim.v.option_type == "local")
+	end,
+})
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function(data)
@@ -24,7 +38,6 @@ vim.api.nvim_create_autocmd("BufHidden", {
 			and not vim.bo[data.buf].readonly
 			and vim.bo[data.buf].modified
 			and vim.bo[data.buf].buftype == ""
-			and data.file ~= ""
 		then
 			vim.cmd("write")
 		end
@@ -46,23 +59,5 @@ vim.api.nvim_create_autocmd("FileType", {
 		else
 			vim.opt_local.statuscolumn = vim.g.default_statuscolumn
 		end
-	end,
-})
-
-vim.api.nvim_create_augroup("indent_line", { clear = true })
-vim.api.nvim_create_autocmd({ "OptionSet" }, {
-	group = "indent_line",
-	pattern = { "shiftwidth", "expandtab", "tabstop" },
-	callback = function()
-		listchars.update(vim.v.option_type == "local")
-	end,
-})
--- OptionSet is not triggered on startup
--- This may be not needed. The listchars has been set properly in options.vim and it will be sourced
--- on startup.
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
-	group = "indent_line",
-	callback = function()
-		listchars.update(false)
 	end,
 })

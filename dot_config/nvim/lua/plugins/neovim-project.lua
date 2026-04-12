@@ -1,5 +1,4 @@
 return {
-	"coffebar/neovim-project",
 	opts = {
 		-- projects to be overridden per machine
 		picker = {

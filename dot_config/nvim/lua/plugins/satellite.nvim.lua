@@ -1,0 +1,4 @@
+return {
+	event = "BufAdd",
+	opts = {},
+}
