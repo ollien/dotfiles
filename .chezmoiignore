@@ -2,6 +2,5 @@ LICENSE.md
 README.md
 bootstrap.sh
 bootstrap
-.config/nvim/**/local.lua
-.config/nvim/**/local
+.config/nvim/lua/_local
 .zim/modules/**/*.zwc
