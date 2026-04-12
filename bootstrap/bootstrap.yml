@@ -9,4 +9,6 @@
           - neovim
           - zsh
           - curl
+          - ripgrep
+          - fd-find
     - role: chezmoi
