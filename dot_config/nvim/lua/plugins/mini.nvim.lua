@@ -15,5 +15,8 @@ return {
 		-- - sd'   - [S]urround [D]elete [']quotes
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup()
+
+		-- Auto-closing of pairwise characters
+		require("mini.pairs").setup()
 	end,
 }
