@@ -2,7 +2,7 @@ local with_local = require("configutil.with_local")
 
 return {
 	dependencies = {
-		{ "j-hui/fidget.nvim", opts = {} },
+		"j-hui/fidget.nvim",
 	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {

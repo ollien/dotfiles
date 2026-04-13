@@ -8,6 +8,7 @@ local plugins = {
 	plugin("folke/snacks.nvim"),
 	plugin("folke/todo-comments.nvim"),
 	plugin("folke/which-key.nvim"),
+	plugin("j-hui/fidget.nvim"),
 	plugin("kwkarlwang/bufresize.nvim"),
 	plugin("lewis6991/gitsigns.nvim"),
 	plugin("lewis6991/satellite.nvim"),
