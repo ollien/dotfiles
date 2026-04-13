@@ -1,0 +1,5 @@
+# Big stinky hack - we can now use chezmoi add to add our _local files back, but then git won't pick them up because of this.
+*
+!.gitignore
+!create_*
+!*/
