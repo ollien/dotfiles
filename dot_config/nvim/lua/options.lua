@@ -34,7 +34,6 @@ vim.o.scrolloff = 10
 vim.o.cursorline = true
 
 vim.opt.tabstop = 4
-
 vim.opt.softtabstop = 4
 
 vim.opt.spell = true
@@ -62,5 +61,3 @@ vim.diagnostic.config({
 	underline = true,
 	float = { border = "single" },
 })
-
-pcall(require, "_local.options")
