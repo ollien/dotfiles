@@ -63,4 +63,4 @@ vim.diagnostic.config({
 	float = { border = "single" },
 })
 
-require("_local.options")
+pcall(require, "_local.options")
