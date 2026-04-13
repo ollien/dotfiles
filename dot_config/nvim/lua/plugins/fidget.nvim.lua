@@ -1,5 +1,6 @@
 return {
 	lazy = false,
+	priority = 100,
 	keys = {
 		{
 			"<leader>nd",
