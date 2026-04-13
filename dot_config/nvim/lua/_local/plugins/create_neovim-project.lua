@@ -1,7 +1,0 @@
-return {
-	opts = {
-		projects = {
-			-- ...
-		},
-	},
-}

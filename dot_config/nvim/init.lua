@@ -12,9 +12,10 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
-require("options")
-require("mappings")
-require("autocmds")
+local with_local = require("configutil.with_local")
+with_local("options")
+with_local("mappings")
+with_local("autocmds")
 
 local plugins = require("plugins")
 
