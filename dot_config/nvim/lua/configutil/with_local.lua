@@ -1,9 +1,9 @@
 local lua_dir = vim.fs.joinpath(vim.fn.stdpath("config"), "lua")
 
-local function load_config(relative_path)
+local function load_config(relative_path, default)
 	local ok, result = pcall(dofile, vim.fs.joinpath(lua_dir, relative_path))
 	if not ok then
-		return {}
+		return default
 	end
 
 	if type(result) ~= "table" then
@@ -14,8 +14,10 @@ end
 
 return function(path, opts)
 	opts = opts or {}
-	local base_config = opts.base_config or load_config(path)
-	local local_config = load_config(vim.fs.joinpath("_local", path))
+
+	local default = opts.default or {}
+	local base_config = opts.base_config or load_config(path, default)
+	local local_config = load_config(vim.fs.joinpath("_local", path), default)
 	if opts.list then
 		return vim.list_extend(vim.deepcopy(base_config), local_config)
 	else
