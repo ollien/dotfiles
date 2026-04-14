@@ -36,6 +36,9 @@ return {
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
+		enabled = function()
+			return not vim.tbl_contains({ "grug-far" }, vim.bo.filetype)
+		end,
 		keymap = {
 			preset = "enter",
 
