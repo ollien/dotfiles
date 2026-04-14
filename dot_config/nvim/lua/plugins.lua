@@ -3,7 +3,6 @@ local plugin = require("configutil.plugin")
 
 local plugins = {
 	plugin("Bekaboo/dropbar.nvim"),
-	plugin("catppuccin/nvim"),
 	plugin("coffebar/neovim-project"),
 	plugin("FabijanZulj/blame.nvim"),
 	plugin("folke/snacks.nvim"),
@@ -25,6 +24,7 @@ local plugins = {
 	plugin("romus204/tree-sitter-manager.nvim"),
 	plugin("saghen/blink.cmp"),
 	plugin("stevearc/conform.nvim"),
+	plugin("wtfox/jellybeans.nvim"),
 }
 
 return with_local("plugins.lua", { list = true, base_config = plugins })
