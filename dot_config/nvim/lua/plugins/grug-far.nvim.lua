@@ -21,6 +21,7 @@ local function toggle_grug_far()
 end
 
 local function find_or_open_grug_far_with_term(term)
+	local grug_far = require("grug-far")
 	local grug_far_instances = require("grug-far.instances")
 
 	local instance = grug_far_instances.get_instance(nil)

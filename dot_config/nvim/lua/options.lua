@@ -5,6 +5,7 @@ vim.g.nvim_tree_statuscolumn = ""
 vim.g.have_nerd_font = true
 vim.g.indentline_char = "·"
 
+vim.o.confirm = false
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.statuscolumn = vim.g.default_statuscolumn
@@ -33,12 +34,12 @@ vim.o.inccommand = "nosplit"
 vim.o.scrolloff = 10
 vim.o.cursorline = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
 
-vim.opt.spell = true
-vim.opt.spelloptions = "camel"
+vim.o.spell = true
+vim.o.spelloptions = "camel"
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
