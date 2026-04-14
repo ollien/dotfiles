@@ -7,11 +7,21 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 local listchars = require("configutil.listchars")
-vim.api.nvim_create_autocmd({ "OptionSet" }, {
+local listchars_group = vim.api.nvim_create_augroup("ListcharsSetup", { clear = true })
+vim.api.nvim_create_autocmd("OptionSet", {
+	group = listchars_group,
 	desc = "setup listchars when options change",
 	pattern = { "shiftwidth", "expandtab", "tabstop" },
 	callback = function()
 		listchars.update(vim.v.option_type == "local")
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	group = listchars_group,
+	desc = "setup listchars when detecting filetype",
+	callback = function()
+		listchars.update(true)
 	end,
 })
 
