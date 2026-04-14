@@ -4,7 +4,6 @@ local plugin = require("configutil.plugin")
 local plugins = {
 	plugin("AlexvZyl/nordic.nvim"),
 	plugin("Bekaboo/dropbar.nvim"),
-	plugin("coffebar/neovim-project"),
 	plugin("FabijanZulj/blame.nvim"),
 	plugin("folke/snacks.nvim"),
 	plugin("folke/todo-comments.nvim"),

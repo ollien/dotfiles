@@ -1,3 +1,6 @@
+local with_local = require("configutil.with_local")
+local projects = with_local("config/projects.lua")
+
 return {
 	priority = 100,
 	lazy = false,
@@ -44,6 +47,13 @@ return {
 			end,
 			desc = "snacks find recent",
 		},
+		{
+			"<leader>fp",
+			function()
+				require("snacks").picker.projects()
+			end,
+			desc = "snacks find recent",
+		},
 	},
 	opts = {
 		picker = {
@@ -72,6 +82,24 @@ return {
 					layout = {
 						preset = "vscode",
 					},
+				},
+				projects = {
+					dev = projects.roots or {},
+					projects = projects.projects or {},
+					patterns = projects.patterns or { ".git", "Makefile", "Justfile", "package.json", "Cargo.toml" },
+					recent = true,
+					confirm = function(picker, item)
+						picker:close()
+						if not item then
+							return
+						end
+
+						local session_name = require("configutil.session_name")
+						local dir = vim.fn.fnamemodify(item.file, ":p"):gsub("/$", "")
+						vim.fn.chdir(dir)
+
+						pcall(MiniSessions.read, session_name(dir))
+					end,
 				},
 			},
 			matcher = {

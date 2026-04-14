@@ -10,5 +10,14 @@ return {
 
 		-- Auto-closing of pairwise characters
 		require("mini.pairs").setup()
+
+		require("mini.sessions").setup()
+
+		local session_name = require("configutil.session_name")
+		vim.api.nvim_create_autocmd("VimLeavePre", {
+			callback = function()
+				MiniSessions.write(session_name(vim.fn.getcwd()), { force = true })
+			end,
+		})
 	end,
 }

@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("OptionSet", {
 	group = listchars_group,
 	desc = "setup listchars when options change",
 	pattern = { "shiftwidth", "expandtab", "tabstop" },
-	callback = function()
+	callback = function(args)
 		listchars.update(vim.v.option_type == "local")
 	end,
 })
