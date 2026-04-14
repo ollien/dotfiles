@@ -20,6 +20,9 @@ return {
 
 		---@type table<string, vim.lsp.Config>
 		local servers = with_local("config/lsp.lua")
+		servers = vim.tbl_filter(function(config)
+			return config ~= false
+		end, servers)
 
 		-- Ensure the servers and tools above are installed
 		--
