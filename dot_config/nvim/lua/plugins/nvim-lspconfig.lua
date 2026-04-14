@@ -1,5 +1,16 @@
 local with_local = require("configutil.with_local")
 
+local function filter_servers(servers)
+	local filtered = {}
+	for name, config in pairs(servers) do
+		if config ~= false then
+			filtered[name] = config
+		end
+	end
+
+	return filtered
+end
+
 return {
 	dependencies = {
 		"j-hui/fidget.nvim",
@@ -20,9 +31,7 @@ return {
 
 		---@type table<string, vim.lsp.Config>
 		local servers = with_local("config/lsp.lua")
-		servers = vim.tbl_filter(function(config)
-			return config ~= false
-		end, servers)
+		servers = filter_servers(servers)
 
 		-- Ensure the servers and tools above are installed
 		--
