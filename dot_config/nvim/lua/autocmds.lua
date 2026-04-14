@@ -25,6 +25,16 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- Workaround for https://github.com/neovim/neovim/issues/33781
+vim.api.nvim_create_autocmd("BufReadPost", {
+	group = listchars_group,
+	callback = function()
+		vim.schedule(function()
+			listchars.update(true)
+		end)
+	end,
+})
+
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function(data)
 		local directory = vim.fn.isdirectory(data.file) == 1
