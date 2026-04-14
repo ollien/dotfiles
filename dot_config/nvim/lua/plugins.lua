@@ -20,9 +20,9 @@ local plugins = {
 	plugin("nvim-mini/mini.nvim"),
 	plugin("nvim-tree/nvim-tree.lua"),
 	plugin("nvim-tree/nvim-web-devicons"),
+	plugin("catppuccin/nvim"),
 	plugin("romus204/tree-sitter-manager.nvim"),
 	plugin("saghen/blink.cmp"),
-	plugin("sainnhe/everforest"),
 	plugin("stevearc/conform.nvim"),
 	plugin("tpope/vim-sleuth"),
 }
