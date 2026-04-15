@@ -14,6 +14,7 @@ return {
 		require("mini.sessions").setup({
 			-- We do this ourselves to support projects
 			autowrite = false,
+			verbose = { read = false, write = false, delete = true },
 		})
 
 		vim.api.nvim_create_autocmd("VimLeavePre", {
