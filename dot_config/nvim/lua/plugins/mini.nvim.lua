@@ -1,5 +1,5 @@
 return {
-	"nvim-mini/mini.nvim",
+	event = "VeryLazy",
 	config = function()
 		-- Add/delete/replace surroundings (brackets, quotes, etc.)
 		--

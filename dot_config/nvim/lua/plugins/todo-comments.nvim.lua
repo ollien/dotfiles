@@ -1,5 +1,5 @@
 return {
-	event = "BufReadPre",
+	event = "BufRead",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	---@module 'todo-comments'
 	---@type TodoOptions

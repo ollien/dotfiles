@@ -1,5 +1,5 @@
 return {
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufReadPost", "BufNewFile" },
 	---@module 'gitsigns'
 	---@type Gitsigns.Config
 	---@diagnostic disable-next-line: missing-fields

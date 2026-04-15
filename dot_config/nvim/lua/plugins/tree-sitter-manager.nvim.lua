@@ -1,6 +1,7 @@
 local with_local = require("modules.configutil.with_local")
 
 return {
+	event = "VeryLazy",
 	config = function()
 		local languages = with_local("config/treesitter.lua")
 

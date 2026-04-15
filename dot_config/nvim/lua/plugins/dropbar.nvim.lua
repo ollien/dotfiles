@@ -4,7 +4,7 @@ return {
 		build = "make",
 	},
 
-	event = "BufEnter",
+	event = "BufRead",
 	---@type dropbar_configs_t
 	opts = {
 		bar = {

@@ -1,5 +1,5 @@
 return {
-	event = "InsertEnter",
+	event = "BufReadPost",
 	version = "1.*",
 	dependencies = {
 		-- Snippet Engine

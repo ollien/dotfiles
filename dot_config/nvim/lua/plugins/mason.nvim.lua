@@ -1,7 +1,8 @@
 local with_local = require("modules.configutil.with_local")
 
 return {
-	"mason-org/mason.nvim",
+	event = "VeryLazy",
+
 	---@module 'mason.settings'
 	---@type MasonSettings
 	---@diagnostic disable-next-line: missing-fields
