@@ -95,6 +95,20 @@ return {
 						end
 
 						local session_name = require("configutil.session_name")
+
+						if vim.g.project_loaded then
+							-- Save the current session before switching away
+							MiniSessions.write(session_name(vim.fn.getcwd()), { force = true })
+						end
+
+						vim.g.project_loaded = true
+
+						-- Close current buffers so we don't mix between projects, kill the LSPs so they don't freak out
+						for _, client in ipairs(vim.lsp.get_clients()) do
+							client:stop(true)
+						end
+						vim.cmd("%bdelete")
+
 						local dir = vim.fn.fnamemodify(item.file, ":p"):gsub("/$", "")
 						vim.fn.chdir(dir)
 
