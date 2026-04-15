@@ -60,6 +60,7 @@ return {
 				lsp = {
 					async = true,
 					fallbacks = {},
+					score_offset = 1000,
 				},
 			},
 		},
