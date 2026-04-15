@@ -16,10 +16,9 @@ return {
 			autowrite = false,
 		})
 
-		local session_name = require("configutil.session_name")
 		vim.api.nvim_create_autocmd("VimLeavePre", {
 			callback = function()
-				MiniSessions.write(session_name(vim.fn.getcwd()), { force = true })
+				require("modules.project").save_if_active()
 			end,
 		})
 	end,
