@@ -1,4 +1,4 @@
-local with_local = require("configutil.with_local")
+local with_local = require("modules.configutil.with_local")
 
 local function filter_servers(servers)
 	local filtered = {}

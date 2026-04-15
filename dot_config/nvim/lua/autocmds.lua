@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-local listchars = require("configutil.listchars")
+local listchars = require("modules.configutil.listchars")
 local listchars_group = vim.api.nvim_create_augroup("ListcharsSetup", { clear = true })
 vim.api.nvim_create_autocmd("OptionSet", {
 	group = listchars_group,

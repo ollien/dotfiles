@@ -1,5 +1,5 @@
-local with_local = require("configutil.with_local")
-local plugin = require("configutil.plugin")
+local with_local = require("modules.configutil.with_local")
+local plugin = require("modules.configutil.plugin")
 
 local plugins = {
 	plugin("AlexvZyl/nordic.nvim"),

@@ -1,4 +1,4 @@
-local with_local = require("configutil.with_local")
+local with_local = require("modules.configutil.with_local")
 local config = with_local("config/formatters.lua")
 
 return {

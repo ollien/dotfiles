@@ -1,4 +1,4 @@
-local with_local = require("configutil.with_local")
+local with_local = require("modules.configutil.with_local")
 local projects = with_local("config/projects.lua")
 
 return {
@@ -91,7 +91,9 @@ return {
 					confirm = function(picker, item)
 						picker:close()
 						if not item then return end
-						require("modules.project").switch(item.file)
+						vim.schedule(function()
+							require("modules.project").switch(item.file)
+						end)
 					end,
 				},
 			},

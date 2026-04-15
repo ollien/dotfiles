@@ -12,7 +12,7 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
-local load_local = require("configutil.load_local")
+local load_local = require("modules.configutil.load_local")
 load_local("options")
 load_local("mappings")
 load_local("autocmds")
