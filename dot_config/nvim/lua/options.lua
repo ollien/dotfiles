@@ -1,7 +1,7 @@
 vim.g.mapleader = ","
 vim.g.maplocalleader = "\\"
 vim.g.default_statuscolumn = "%s%{v:lnum}  %{v:relnum == 0 ? ' ' : v:relnum} "
-vim.g.nvim_tree_statuscolumn = ""
+vim.g.relnum_only_statuscolumn = "%s%{v:relnum == 0 ? ' ' : v:relnum} "
 vim.g.have_nerd_font = true
 vim.g.indentline_char = "·"
 

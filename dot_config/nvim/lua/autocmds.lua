@@ -65,19 +65,35 @@ vim.api.nvim_create_autocmd("BufHidden", {
 	desc = "Auto-save buffer when leaving it",
 })
 
+local statuscolumn_group = vim.api.nvim_create_augroup("StatuscolumnSetup", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-	callback = function(args)
-		-- Skip if this is a floating window (like hover popups)
+	group = statuscolumn_group,
+	callback = function()
 		local win = vim.api.nvim_get_current_win()
 		local config = vim.api.nvim_win_get_config(win)
-		if config.relative ~= "" then
-			return
-		end
 
-		if vim.bo.filetype == "NvimTree" then
-			vim.opt_local.statuscolumn = vim.g.nvim_tree_statuscolumn
-		else
+		vim.print(vim.bo.filetype)
+		if vim.tbl_contains({ "NvimTree", "grug-far" }, vim.bo.filetype) then
+			vim.opt_local.statuscolumn = vim.g.relnum_only_statuscolumn
+		-- Skip if this is a floating window (like hover popups; nvimtree is an exception)
+		elseif config.relative == "" then
 			vim.opt_local.statuscolumn = vim.g.default_statuscolumn
 		end
+	end,
+})
+
+-- Workaround for FileType's statuscolumn getting reset
+vim.api.nvim_create_autocmd("User", {
+	group = statuscolumn_group,
+	pattern = "NvimTreeSetup",
+	once = true,
+	callback = function()
+		local api = require("nvim-tree.api")
+		api.events.subscribe(api.events.Event.TreeOpen, function()
+			local winnr = require("nvim-tree.view").get_winnr()
+			if winnr then
+				vim.wo[winnr].statuscolumn = vim.g.relnum_only_statuscolumn
+			end
+		end)
 	end,
 })

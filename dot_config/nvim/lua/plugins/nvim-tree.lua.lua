@@ -18,6 +18,7 @@ return {
 		view = {
 			number = false,
 			relativenumber = true,
+			signcolumn = "no",
 			float = {
 				enable = true,
 				-- Taken from
