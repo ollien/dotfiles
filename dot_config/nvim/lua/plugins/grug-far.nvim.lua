@@ -71,4 +71,14 @@ return {
 			flags = "-i",
 		},
 	},
+	config = function(_, opts)
+		require("grug-far").setup(opts)
+
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "grug-far",
+			callback = function()
+				vim.opt_local.list = false
+			end,
+		})
+	end,
 }
