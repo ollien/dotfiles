@@ -72,7 +72,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		local win = vim.api.nvim_get_current_win()
 		local config = vim.api.nvim_win_get_config(win)
 
-		vim.print(vim.bo.filetype)
 		if vim.tbl_contains({ "NvimTree", "grug-far" }, vim.bo.filetype) then
 			vim.opt_local.statuscolumn = vim.g.relnum_only_statuscolumn
 		-- Skip if this is a floating window (like hover popups; nvimtree is an exception)
