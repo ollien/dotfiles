@@ -15,6 +15,17 @@ return {
 			-- We do this ourselves to support projects
 			autowrite = false,
 			verbose = { read = false, write = false, delete = true },
+			hooks = {
+				pre = {
+					write = function()
+						for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+							if vim.b[buf].exclude_from_session then
+								vim.api.nvim_buf_delete(buf, { force = true })
+							end
+						end
+					end,
+				},
+			},
 		})
 
 		vim.api.nvim_create_autocmd("VimLeavePre", {

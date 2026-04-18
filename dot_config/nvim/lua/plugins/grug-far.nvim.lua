@@ -78,6 +78,7 @@ return {
 			pattern = "grug-far",
 			callback = function()
 				vim.opt_local.list = false
+				vim.b.exclude_from_session = true
 			end,
 		})
 	end,
