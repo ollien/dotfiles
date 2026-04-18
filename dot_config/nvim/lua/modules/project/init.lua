@@ -7,14 +7,10 @@ local function session_name(dir)
 	return name
 end
 
-local function has_unsaved_buffers()
-	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-		if vim.bo[buf].modified then
-			return true
-		end
-	end
-
-	return false
+local function get_unsaved_buffers()
+	return vim.tbl_filter(function(buf)
+		return vim.bo[buf].modified
+	end, vim.api.nvim_list_bufs())
 end
 
 function M.save_if_active()
@@ -26,8 +22,29 @@ end
 function M.switch(raw_dir)
 	local dir = vim.fn.fnamemodify(raw_dir, ":p"):gsub("/$", "")
 
-	if has_unsaved_buffers() then
-		vim.api.nvim_echo({ { "Unsaved changes — save or discard before switching projects", "ErrorMsg" } }, true, {})
+	local unsaved = get_unsaved_buffers()
+	if #unsaved == 1 then
+		local buf = unsaved[1]
+		local name = vim.api.nvim_buf_get_name(buf)
+		local short = name ~= "" and vim.fn.fnamemodify(name, ":~:.") or "[No Name]"
+
+		vim.api.nvim_echo({
+			{
+				"Unsaved buffer: " .. short .. " (buf " .. buf .. ") — save or discard before switching projects",
+				"ErrorMsg",
+			},
+		}, true, {})
+
+		return
+	elseif #unsaved > 1 then
+		local msgs = { { "Unsaved buffers — save or discard before switching projects:\n", "ErrorMsg" } }
+		for _, buf in ipairs(unsaved) do
+			local name = vim.api.nvim_buf_get_name(buf)
+			local short = name ~= "" and vim.fn.fnamemodify(name, ":~:.") or "[No Name]"
+			table.insert(msgs, { "  - " .. short .. " (buf " .. buf .. ")\n", "ErrorMsg" })
+		end
+
+		vim.api.nvim_echo(msgs, true, {})
 
 		return
 	end
