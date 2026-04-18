@@ -7,6 +7,16 @@ local function session_name(dir)
 	return name
 end
 
+local function has_unsaved_buffers()
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if vim.bo[buf].modified then
+			return true
+		end
+	end
+
+	return false
+end
+
 function M.save_if_active()
 	if vim.g.ollien_project_loaded == vim.fn.getcwd() then
 		MiniSessions.write(session_name(vim.fn.getcwd()), { force = true })
@@ -15,6 +25,12 @@ end
 
 function M.switch(raw_dir)
 	local dir = vim.fn.fnamemodify(raw_dir, ":p"):gsub("/$", "")
+
+	if has_unsaved_buffers() then
+		vim.api.nvim_echo({ { "Unsaved changes — save or discard before switching projects", "ErrorMsg" } }, true, {})
+
+		return
+	end
 
 	-- Save the current session before switching away
 	M.save_if_active()
