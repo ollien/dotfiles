@@ -11,6 +11,28 @@ return {
 		end,
 
 		visual = { theme = "light" },
+		integrations = {
+			dashboard = false,
+			diff_view = false,
+			indent_blankline = false,
+			leap = false,
+			lsp_saga = false,
+			mini = false,
+			neo_tree = false,
+			neorg = false,
+			noice = false,
+			notify = false,
+			nvim_cmp = false,
+			nvim_dap = false,
+			nvim_tree = false,
+			rainbow_delimiters = false,
+			telescope = false,
+			treesitter_context = false,
+			trouble = false,
+			vimtex = false,
+			visual_whitespace = false,
+			which_key = false,
+		},
 	},
 	config = function(_, opts)
 		require("nordic").setup(opts)
