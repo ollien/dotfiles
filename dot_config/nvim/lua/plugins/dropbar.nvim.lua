@@ -46,7 +46,7 @@ return {
 					not vim.api.nvim_buf_is_valid(buf)
 					or not vim.api.nvim_win_is_valid(win)
 					or vim.fn.win_gettype(win) ~= ""
-					or (vim.wo[win].winbar ~= "" and vim.wo[win].winbar ~= " ")
+					or vim.wo[win].winbar ~= ""
 					or vim.bo[buf].ft == "help"
 				then
 					return false
@@ -75,14 +75,4 @@ return {
 			},
 		},
 	},
-	init = function()
-		vim.api.nvim_create_autocmd("WinLeave", {
-			callback = function()
-				local win = vim.api.nvim_get_current_win()
-				if vim.wo[win].winbar ~= "" and vim.wo[win].winbar ~= " " then
-					vim.wo[win].winbar = " "
-				end
-			end,
-		})
-	end,
 }
