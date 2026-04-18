@@ -3,6 +3,7 @@ return {
 		options = {
 			section_separators = { left = "", right = "" },
 			component_separators = { left = "╲", right = "╱" },
+			theme = "nordic",
 		},
 		sections = {
 			lualine_a = { "mode" },
@@ -13,12 +14,16 @@ return {
 			lualine_z = { "location" },
 		},
 		inactive_sections = {
-			lualine_a = {},
-			lualine_b = {},
-			lualine_c = { { "filename", path = 1 } },
-			lualine_x = { "location" },
+			lualine_a = {
+				function()
+					return "INACTIVE"
+				end,
+			},
+			lualine_b = { { "filename", path = 1 }, "diagnostics" },
+			lualine_c = { "branch", "diff" },
+			lualine_x = { "filetype", "lsp_status" },
 			lualine_y = {},
-			lualine_z = {},
+			lualine_z = { "location" },
 		},
 	},
 }
