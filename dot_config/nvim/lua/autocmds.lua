@@ -58,6 +58,7 @@ vim.api.nvim_create_autocmd("BufHidden", {
 			and not vim.bo[data.buf].readonly
 			and vim.bo[data.buf].modified
 			and vim.bo[data.buf].buftype == ""
+			and vim.api.nvim_buf_get_name(data.buf) ~= ""
 		then
 			vim.cmd("write")
 		end
