@@ -1,5 +1,5 @@
 return {
-	event = "BufReadPost",
+	event = "VeryLazy",
 	version = "1.*",
 	dependencies = {
 		-- Snippet Engine
