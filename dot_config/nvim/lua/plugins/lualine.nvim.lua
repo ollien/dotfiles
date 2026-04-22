@@ -1,3 +1,11 @@
+local function last_buffer()
+	local alt = vim.fn.bufname("#")
+	if alt ~= "" then
+		return "⇄ " .. vim.fn.fnamemodify(alt, ":t")
+	end
+	return ""
+end
+
 return {
 	opts = {
 		options = {
@@ -8,8 +16,12 @@ return {
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { { "filename", path = 1 }, "diagnostics" },
-			lualine_c = { "branch", "diff" },
-			lualine_x = { "filetype", "lsp_status" },
+			lualine_c = { "branch" },
+			lualine_x = {
+				last_buffer,
+				"filetype",
+				"lsp_status",
+			},
 			lualine_y = {},
 			lualine_z = { "location" },
 		},
@@ -21,7 +33,7 @@ return {
 			},
 			lualine_b = { { "filename", path = 1 }, "diagnostics" },
 			lualine_c = { "branch", "diff" },
-			lualine_x = { "filetype", "lsp_status" },
+			lualine_x = { "filetype" },
 			lualine_y = {},
 			lualine_z = { "location" },
 		},
