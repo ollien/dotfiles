@@ -9,6 +9,7 @@ local plugins = {
 	plugin("folke/todo-comments.nvim"),
 	plugin("folke/which-key.nvim"),
 	plugin("j-hui/fidget.nvim"),
+	plugin("kevinhwang91/nvim-bqf"),
 	plugin("kwkarlwang/bufresize.nvim"),
 	plugin("lewis6991/gitsigns.nvim"),
 	plugin("lewis6991/satellite.nvim"),
@@ -24,7 +25,6 @@ local plugins = {
 	plugin("romus204/tree-sitter-manager.nvim"),
 	plugin("saghen/blink.cmp"),
 	plugin("stevearc/conform.nvim"),
-	plugin("kevinhwang91/nvim-bqf"),
 }
 
 return with_local("plugins.lua", { list = true, base_config = plugins })
