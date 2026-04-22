@@ -24,6 +24,7 @@ local plugins = {
 	plugin("romus204/tree-sitter-manager.nvim"),
 	plugin("saghen/blink.cmp"),
 	plugin("stevearc/conform.nvim"),
+	plugin("kevinhwang91/nvim-bqf"),
 }
 
 return with_local("plugins.lua", { list = true, base_config = plugins })
