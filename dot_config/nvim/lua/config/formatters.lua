@@ -6,5 +6,6 @@ return {
 		javascript = { "prettier" },
 		typescript = { "prettier" },
 		yaml = { "prettier" },
+		c = { "clang_format" },
 	},
 }
