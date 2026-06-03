@@ -38,13 +38,35 @@ vim.keymap.set({ "x", "n" }, "<leader>c", '"_c', { noremap = true, desc = "chang
 vim.keymap.set("n", "<leader>h", "<cmd>noh<cr>", { noremap = true, desc = "clear highlighting" })
 
 -- https://www.reddit.com/r/neovim/comments/1t6x85i/comment/oklasyx/
-vim.keymap.set("n", "<leader>s*", 'viw"-y:%s/<C-r>-/<C-r>-/g<Left><Left>', { noremap = true, desc = "substitute word" })
 vim.keymap.set(
 	"v",
 	"<leader>s",
 	'"-y:%s/<C-r>-/<C-r>-/g<Left><Left>',
 	{ noremap = true, desc = "substitute selection" }
 )
+
+_G.motion_substitute = function()
+	vim.cmd('normal! `[v`]"-y')
+
+	local word = vim.fn.getreg("-")
+	local escaped = vim.fn.escape(word, "/\\.*^$[]~")
+
+	vim.api.nvim_feedkeys(
+		":%s/"
+			.. escaped
+			.. "/"
+			.. escaped
+			.. "/g"
+			.. vim.api.nvim_replace_termcodes("<Left><Left>", false, false, true),
+		"n",
+		false
+	)
+end
+
+vim.keymap.set("n", "<leader>s", function()
+	vim.o.operatorfunc = "v:lua.motion_substitute"
+	return "g@"
+end, { expr = true, desc = "substitute motion" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
