@@ -73,6 +73,15 @@ return {
 			expr = true,
 			desc = "find and replace motion",
 		},
+		{
+			"<leader>f",
+			function()
+				vim.cmd('normal! "-y')
+				find_or_open_grug_far_with_term(vim.fn.getreg("-"))
+			end,
+			mode = "v",
+			desc = "find and replace selection",
+		},
 	},
 	opts = {
 		showCompactInputs = true,
