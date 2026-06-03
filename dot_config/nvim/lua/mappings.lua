@@ -1,3 +1,5 @@
+local motion = require("modules.motion")
+
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
@@ -38,34 +40,47 @@ vim.keymap.set({ "x", "n" }, "<leader>c", '"_c', { noremap = true, desc = "chang
 vim.keymap.set("n", "<leader>h", "<cmd>noh<cr>", { noremap = true, desc = "clear highlighting" })
 
 -- https://www.reddit.com/r/neovim/comments/1t6x85i/comment/oklasyx/
-vim.keymap.set(
-	"v",
-	"<leader>s",
-	'"-y:%s/<C-r>-/<C-r>-/g<Left><Left>',
-	{ noremap = true, desc = "substitute selection" }
-)
-
-_G.motion_substitute = function()
-	vim.cmd('normal! `[v`]"-y')
-
-	local word = vim.fn.getreg("-")
-	local escaped = vim.fn.escape(word, "/\\.*^$[]~")
-
+vim.keymap.set("v", "<leader>s", function()
+	vim.cmd('normal! "-y')
+	local text = vim.fn.getreg("-")
+	local escaped = vim.fn.escape(text, "/\\.*^$[]~")
 	vim.api.nvim_feedkeys(
-		":%s/"
+		":%s/" .. escaped .. "/" .. escaped .. "/g"
+			.. vim.api.nvim_replace_termcodes("<Left><Left>", false, false, true),
+		"n",
+		false
+	)
+end, { desc = "substitute selection" })
+
+vim.keymap.set("n", "<leader>s*", function()
+	local word = vim.fn.expand("<cword>")
+	local escaped = vim.fn.escape(word, "/\\.*^$[]~")
+	vim.api.nvim_feedkeys(
+		":%s/\\<"
 			.. escaped
-			.. "/"
+			.. "\\>/"
 			.. escaped
 			.. "/g"
 			.. vim.api.nvim_replace_termcodes("<Left><Left>", false, false, true),
 		"n",
 		false
 	)
-end
+end, { desc = "substitute current word" })
 
 vim.keymap.set("n", "<leader>s", function()
-	vim.o.operatorfunc = "v:lua.motion_substitute"
-	return "g@"
+	return motion.operator(function(text)
+		local escaped = vim.fn.escape(text, "/\\.*^$[]~")
+		vim.api.nvim_feedkeys(
+			":%s/"
+				.. escaped
+				.. "/"
+				.. escaped
+				.. "/g"
+				.. vim.api.nvim_replace_termcodes("<Left><Left>", false, false, true),
+			"n",
+			false
+		)
+	end)
 end, { expr = true, desc = "substitute motion" })
 
 vim.api.nvim_create_autocmd("LspAttach", {

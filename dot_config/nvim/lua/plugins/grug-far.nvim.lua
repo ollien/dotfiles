@@ -1,3 +1,5 @@
+local motion = require("modules.motion")
+
 local function switch_to_buffer_window(buf)
 	local wins = vim.fn.win_findbuf(buf)
 	if #wins > 0 then
@@ -60,6 +62,16 @@ return {
 				find_or_open_grug_far_with_current_word()
 			end,
 			desc = "find and replace current word",
+		},
+		{
+			"<leader>f",
+			function()
+				return motion.operator(function(text)
+					find_or_open_grug_far_with_term(text)
+				end)
+			end,
+			expr = true,
+			desc = "find and replace motion",
 		},
 	},
 	opts = {
