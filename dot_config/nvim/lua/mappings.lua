@@ -35,7 +35,16 @@ vim.keymap.set("n", "<leader><space>", vim.diagnostic.open_float)
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = "paste to blackhole" })
 vim.keymap.set({ "x", "n" }, "<leader>d", '"_d', { noremap = true, desc = "delete to blackhole" })
 vim.keymap.set({ "x", "n" }, "<leader>c", '"_c', { noremap = true, desc = "change to blackhole" })
-vim.keymap.set("n", "<leader>h", "<cmd>noh<cr>", { desc = "clear highlighting" })
+vim.keymap.set("n", "<leader>h", "<cmd>noh<cr>", { noremap = true, desc = "clear highlighting" })
+
+-- https://www.reddit.com/r/neovim/comments/1t6x85i/comment/oklasyx/
+vim.keymap.set("n", "<leader>s*", 'viw"-y:%s/<C-r>-/<C-r>-/g<Left><Left>', { noremap = true, desc = "substitute word" })
+vim.keymap.set(
+	"v",
+	"<leader>s",
+	'"-y:%s/<C-r>-/<C-r>-/g<Left><Left>',
+	{ noremap = true, desc = "substitute selection" }
+)
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
