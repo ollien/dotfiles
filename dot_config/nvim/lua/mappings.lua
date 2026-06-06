@@ -83,6 +83,34 @@ vim.keymap.set("n", "<leader>s", function()
 	end)
 end, { expr = true, desc = "substitute motion" })
 
+vim.keymap.set("n", "]e", function()
+	vim.diagnostic.jump({ count = 1, float = true, severity = vim.diagnostic.severity.ERROR })
+end)
+vim.keymap.set("n", "[e", function()
+	vim.diagnostic.jump({ count = -1, float = true, severity = vim.diagnostic.severity.ERROR })
+end)
+
+vim.keymap.set("n", "]w", function()
+	vim.diagnostic.jump({ count = 1, float = true, severity = vim.diagnostic.severity.WARN })
+end)
+vim.keymap.set("n", "[w", function()
+	vim.diagnostic.jump({ count = -1, float = true, severity = vim.diagnostic.severity.WARN })
+end)
+
+vim.keymap.set("n", "]I", function()
+	vim.diagnostic.jump({ count = 1, float = true, severity = vim.diagnostic.severity.INFO })
+end)
+vim.keymap.set("n", "[I", function()
+	vim.diagnostic.jump({ count = -1, float = true, severity = vim.diagnostic.severity.INFO })
+end)
+
+vim.keymap.set("n", "]h", function()
+	vim.diagnostic.jump({ count = 1, float = true, severity = vim.diagnostic.severity.HINT })
+end)
+vim.keymap.set("n", "[h", function()
+	vim.diagnostic.jump({ count = -1, float = true, severity = vim.diagnostic.severity.HINT })
+end)
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local opts = { buffer = args.buf }
