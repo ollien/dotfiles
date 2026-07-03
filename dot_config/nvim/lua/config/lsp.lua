@@ -1,7 +1,16 @@
 ---@type table<string, vim.lsp.Config>
 return {
 	html = {},
-	rust_analyzer = {},
+
+	rust_analyzer = {
+		settings = {
+			["rust-analyzer"] = {
+				check = {
+					command = "clippy",
+				},
+			},
+		},
+	},
 	gleam = {},
 	stylua = {},
 	expert = {},
