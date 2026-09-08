@@ -22,7 +22,7 @@ local plugins = {
 	plugin("nvim-mini/mini.nvim"),
 	plugin("nvim-tree/nvim-tree.lua"),
 	plugin("nvim-tree/nvim-web-devicons"),
-	plugin("romus204/tree-sitter-manager.nvim"),
+	plugin("nvim-treesitter/nvim-treesitter"),
 	plugin("saghen/blink.cmp"),
 	plugin("stevearc/conform.nvim"),
 }
