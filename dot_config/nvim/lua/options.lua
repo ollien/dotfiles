@@ -44,6 +44,9 @@ vim.o.spelloptions = "camel"
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
+-- Treesitter normally has 'expr', but 'indent' is a good fallback
+vim.o.foldmethod = "indent"
+-- Don'close open any folds (99 isn't just a big number, it's how you disabled it)
 vim.o.foldlevelstart = 99
 
 -- Sync clipboard between OS and Neovim.
