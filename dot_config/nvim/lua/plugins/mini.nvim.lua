@@ -37,12 +37,17 @@ return {
 		vim.api.nvim_create_autocmd("FileType", {
 			pattern = "rust",
 			callback = function(args)
-				MiniPairs.map_buf(args.buf, "i", "'", {
-					action = "closeopen",
-					pair = "''",
-					neigh_pattern = "[^%a\\<&].",
-					register = { cr = false },
-				})
+				vim.keymap.set("i", "'", function()
+					local col = vim.api.nvim_win_get_cursor(0)[2]
+					local before = vim.api.nvim_get_current_line():sub(1, col)
+
+					-- &'a, or inside an unclosed <...> containing only generic-ish stuff
+					if before:match("&$") or before:match("<[%w_%s,':+]*$") then
+						return "'"
+					end
+
+					return MiniPairs.closeopen("''", "[^%a\\].")
+				end, { buffer = args.buf, expr = true, replace_keycodes = false })
 			end,
 		})
 	end,
