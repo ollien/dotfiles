@@ -1,4 +1,5 @@
 local motion = require("modules.motion")
+local path = require("modules.path")
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
@@ -13,11 +14,18 @@ vim.keymap.set("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true 
 vim.keymap.set("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
 vim.keymap.set("n", "<leader>ry", function()
-	local path = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
-	local relative_path = vim.fn.fnamemodify(path, ":~:.")
-	vim.fn.setreg("+", relative_path)
+	local relpath = path.relative_path_of_buffer()
+	vim.fn.setreg("+", relpath)
 
-	print("Copied " .. relative_path)
+	print("Copied " .. relpath)
+end, { desc = "copy relative path " })
+
+vim.keymap.set("v", "<leader>ry", function()
+	local relpath = path.relative_path_of_buffer({ line_no = true })
+	vim.fn.setreg("+", relpath)
+	vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "n", false)
+
+	print("Copied " .. relpath)
 end, { desc = "copy relative path " })
 
 vim.keymap.set("n", "Q", function()
@@ -45,7 +53,11 @@ vim.keymap.set("v", "<leader>s", function()
 	local text = vim.fn.getreg("-")
 	local escaped = vim.fn.escape(text, "/\\.*^$[]~")
 	vim.api.nvim_feedkeys(
-		":%s/" .. escaped .. "/" .. escaped .. "/g"
+		":%s/"
+			.. escaped
+			.. "/"
+			.. escaped
+			.. "/g"
 			.. vim.api.nvim_replace_termcodes("<Left><Left>", false, false, true),
 		"n",
 		false
